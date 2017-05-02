@@ -1,0 +1,94 @@
+#coupon{
+  height: 382px;
+  background: #FFFFFF;
+  box-shadow: 0 4px 4px 0 rgba(146,137,137,0.50);
+  margin-bottom: 200px;
+}
+.coupon{
+  width: 389px;
+  height: 96px;
+  display: inline-block;
+  margin-bottom: 19px;
+  position: relative;
+  &:nth-child(odd){
+    margin-right: 162px;
+  }
+}
+.wrap_coupon{
+  margin-left: 119px;
+ margin-top: 30px;
+}
+.money{
+  color: white;
+  display: inline-block;
+  width: 110px;
+  height: 96px;
+  line-height: 96px;
+
+  text-align: center;
+  vertical-align: bottom;
+  span{
+    display: inline-block;
+    font-family: '.PingFangSC-Regular';
+    font-size: 50px;
+    color: #FFFFFF;
+    letter-spacing: -2px;
+  }
+  }
+.m-text{
+  display: inline-block;
+  font-family: LucidaGrande;
+  font-size: 12px;
+  letter-spacing: -1.02px;
+  line-height: 20px;
+ /* -webkit-text-size-adjust:none;
+  -webkit-transform: scale(0.7);
+  -webkit-transform-origin-x: 0;*/
+  color: #9C9C9C;
+  p{
+    margin-top: 6px;
+    &:first-child{
+      margin-top: 8px;
+    }
+  }
+}
+.gone{
+  background: url("../../../assets/images/gone.png")no-repeat;
+  background-size: 100% 100%;
+}
+.already{
+  background: url("../../../assets/images/already.png")no-repeat;
+  background-size: 100% 100%;
+}
+.coupon_icon{
+  height: 60px;
+  width: 60px;
+  position: absolute;
+  right: 20px;
+  top:0;
+  bottom: 0;
+  margin: auto;
+}
+.use{
+  height:26px;
+  width: 100px;
+  line-height: 26px;
+  text-align: center;
+  border: 1px solid #D11414;
+  border-radius: 100px;
+  color: #D11414;
+  font-family: PingFangSC-Regular;
+  font-size: 12px;
+  letter-spacing: 0.33px;
+  position: absolute;
+   right: 0;
+  top:0;
+  bottom: 0;
+  margin: auto;
+  -webkit-text-size-adjust:none;
+  -webkit-transform: scale(0.7);
+ /* -webkit-transform-origin-x: 12px;*/
+}
+.no_things{
+  line-height: 8;
+}

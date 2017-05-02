@@ -1,0 +1,52 @@
+#get_card{
+  height: 419px;
+  background: #FFFFFF;
+  box-shadow: 0 4px 4px 0 rgba(146,137,137,0.50);
+  margin-bottom: 42px;
+  .title{
+    padding: 36px 65px 36px 65px;
+  }
+  .to_get_card{
+    float: right;
+    font-family:'.PingFangSC-Regular';
+    font-size: 20px;
+    color: #D52525;
+    letter-spacing: -0.68px;
+  }
+}
+.s-card{
+  width: 200px;
+  height: 224px;
+  box-sizing: border-box;
+  display: inline-block;
+  margin-right: 82px;
+  position: relative;
+  &:first-of-type{
+    margin-left: 60px;
+  }
+
+}
+.card_num{
+  height:32px;
+  line-height: 32px;
+  text-align: center;
+
+  border-radius: 100px;
+  margin-top: 24px;
+  font-family: '.PingFangSC-Regular';
+  font-size: 20px;
+
+  letter-spacing: -0.68px;
+  &:nth-last-of-type(4){
+    margin-left: 60px;
+  }
+}
+.red_color{
+  border: 1px solid #E41E1F;
+  color: #D52525;
+}
+.gray_color{
+  border: 1px solid #7C7C7C;
+  color: #7C7C7C;
+
+}

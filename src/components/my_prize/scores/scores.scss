@@ -1,0 +1,59 @@
+#scores{
+  background: #FFFFFF;
+  box-shadow: 0 4px 4px 0 rgba(146,137,137,0.50);
+  height: 214px;
+  margin-bottom: 42px;
+}
+.title{
+  padding: 36px 65px 36px 65px;
+}
+.to_get_card{
+  float: right;
+  font-family:'.PingFangSC-Regular';
+  font-size: 20px;
+  color: #D52525;
+  letter-spacing: -0.68px;
+}
+.my-tb{
+  height:auto;
+  overflow: hidden;
+  table-layout:fixed;
+  width: 100%;
+  margin: auto;
+  margin-left: 65px;
+
+  li{
+    width: 40%;
+    float: left;
+    text-align: left;
+    margin-bottom: 30px;
+
+    &:last-child{
+      width: 100%;
+      text-align:left;
+      font-family: '.PingFangSC-Regular';
+      font-size: 13px;
+      color: #9C9C9C;
+      letter-spacing: 0;
+    }
+  }
+
+  .btn{
+    background: none;
+    border: 1px solid #FE4744;
+    border-radius: 100px;
+    width: 96px;
+    height: 27px;
+    font-family: '.PingFangSC-Regular';
+    font-size: 14px;
+    color: #FE4744;
+    letter-spacing: -0.91px;
+    float: right;
+  }
+}
+.card_num_c{
+  font-family: '.PingFangSC-Regular';
+  font-size: 20px;
+  color: #D52525;
+  letter-spacing: -0.68px;
+}

@@ -1,0 +1,60 @@
+
+#right_navbar{
+  position:fixed;
+  right: 0;
+  top:20px;
+  z-index: 99999;
+}
+.ad{
+  width: 124px;
+  height: 95px;
+}
+.nav_right{
+  height: 325px;
+  width: 124px;
+  background: #C85252;
+  padding: 0 20px 0 20px;
+  box-sizing: border-box;
+  li{
+    height: 40.625px;
+    line-height: 40.625px;
+    border-bottom: 1px solid #7D1414;
+    box-sizing: border-box;
+    &:last-child{
+      border-bottom: none;
+      text-align: center;
+      font-family: PingFangSC-Regular;
+      font-size: 13px;
+      color: #FFFFFF;
+      letter-spacing: 0;
+    }
+    a{
+      font-family: PingFangSC-Regular;
+      font-size: 13px;
+      color: #FFFFFF;
+      letter-spacing: 0;
+    }
+  }
+}
+.j_right{
+  float: right;
+}
+.QR_code{
+  margin-top: 10px;
+  width: 124px;
+  height: 167px;
+  background: #C85252;
+  text-align: center;
+  p{
+    font-family: PingFangSC-Regular;
+    font-size: 13px;
+    color: #FFFFFF;
+    letter-spacing: 0;
+    line-height: 2.2;
+  }
+  .q_code{
+    height: 105px;
+    width: 105px;
+    margin: auto;
+  }
+}

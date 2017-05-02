@@ -1,0 +1,63 @@
+
+#people{
+  height: 380px;
+  background: #FFFFFF;
+  box-shadow: 0 4px 4px 0 rgba(146,137,137,0.50);
+  position: relative;
+  margin-bottom: 42px;
+}
+.my-user {
+  width:990px;
+  height: 276px;
+  margin-left: 123px;
+  box-sizing: border-box;
+  overflow: hidden;
+
+
+  li {
+    float: left;
+    width: 270px;
+    height: 72px;
+    line-height: 72px;
+    background: #FFFFFF;
+    border: 1px solid #E4E4E4;
+    border-radius: 4px;
+      margin-right:60px;
+    margin-bottom: 15px;
+    &:nth-child(3n){
+      margin-right: 0;
+    }
+
+
+  }
+}
+
+.user-head {
+  width: 52px;
+  height: 52px;
+  vertical-align: middle;
+  margin: 0 33px 0 33px;
+  display: inline-block;
+  border-radius: 50%;
+  border: 1px solid #E4E4E4;
+
+}
+.name{
+  vertical-align: middle;
+  line-height: 8.26vw;
+  display: inline-block;
+  width: 25vw;
+  height: 8.26vw;
+  white-space: nowrap;
+  word-wrap:break-word;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  font-family: '.PingFangSC-Regular';
+  font-size: 3rem;
+  color: #494949;
+  letter-spacing: -0.5px;
+}
+.null_people{
+  background:url("../../../assets/images/head_k.png") no-repeat;
+  background-size: 100% 100%;
+}

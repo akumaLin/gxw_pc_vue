@@ -1,0 +1,183 @@
+{
+  "result": true,
+  "message": "查询成功",
+  "list": {
+    "wordNum": {
+      "word1_num": "1",
+      "word2_num": "0",
+      "word3_num": "2",
+      "word4_num": "4"
+    },
+    "loveTitle": {
+      "love_id": "1",
+      "likes": "2",
+      "username": "231",
+      "user_img": "https://ss3.bdstatic.com/70cFv8Sh_Q1YnxGkpoWK1HF6hhy/it/u=6509514,3865858695&fm=117&gp=0.jpg",
+      "ranking": 4,
+      "imageurl": "https://ss3.bdstatic.com/70cFv8Sh_Q1YnxGkpoWK1HF6hhy/it/u=6509514,3865858695&fm=117&gp=0.jpg"
+    },
+    "pointCode": {
+      "pointNum": "14"
+    },
+    "shareUser": [
+      {
+        "new_user_id": "23200",
+        "avatar": "",
+        "username": null
+      },
+      {
+        "new_user_id": "23200",
+        "avatar": "",
+        "username": null
+      }, {
+        "new_user_id": "23200",
+        "avatar": "",
+        "username": null
+      }, {
+        "new_user_id": "23200",
+        "avatar": "",
+        "username": null
+      }, {
+        "new_user_id": "23200",
+        "avatar": "",
+        "username": null
+      }, {
+        "new_user_id": "23200",
+        "avatar": "",
+        "username": null
+      }, {
+        "new_user_id": "23200",
+        "avatar": "",
+        "username": null
+      }, {
+        "new_user_id": "23200",
+        "avatar": "",
+        "username": null
+      }, {
+        "new_user_id": "23200",
+        "avatar": "",
+        "username": null
+      }
+    ],
+    "prize": [
+      {
+        "prize_name": "laoda ",
+        "image": "https://ss3.bdstatic.com/70cFv8Sh_Q1YnxGkpoWK1HF6hhy/it/u=6509514,3865858695&fm=117&gp=0.jpg",
+        "num": "1",
+        "prize_id": "13"
+      },
+      {
+        "prize_name": "宝马",
+        "image": "https://ss3.bdstatic.com/70cFv8Sh_Q1YnxGkpoWK1HF6hhy/it/u=6509514,3865858695&fm=117&gp=0.jpg",
+        "num": "2",
+        "prize_id": "14"
+      },
+      {
+        "prize_name": "宝马",
+        "image": "https://ss3.bdstatic.com/70cFv8Sh_Q1YnxGkpoWK1HF6hhy/it/u=6509514,3865858695&fm=117&gp=0.jpg",
+        "num": "2",
+        "prize_id": "14"
+      }, {
+        "prize_name": "laoda ",
+        "image": "https://ss3.bdstatic.com/70cFv8Sh_Q1YnxGkpoWK1HF6hhy/it/u=6509514,3865858695&fm=117&gp=0.jpg",
+        "num": "1",
+        "prize_id": "13"
+      },
+      {
+        "prize_name": "宝马",
+        "image": "https://ss3.bdstatic.com/70cFv8Sh_Q1YnxGkpoWK1HF6hhy/it/u=6509514,3865858695&fm=117&gp=0.jpg",
+        "num": "2",
+        "prize_id": "14"
+      },
+      {
+        "prize_name": "宝马",
+        "image": "https://ss3.bdstatic.com/70cFv8Sh_Q1YnxGkpoWK1HF6hhy/it/u=6509514,3865858695&fm=117&gp=0.jpg",
+        "num": "2",
+        "prize_id": "14"
+      },
+      {
+        "prize_name": "宝马",
+        "image": "https://ss3.bdstatic.com/70cFv8Sh_Q1YnxGkpoWK1HF6hhy/it/u=6509514,3865858695&fm=117&gp=0.jpg",
+        "num": "2",
+        "prize_id": "14"
+      }
+    ],
+    "coupon": [
+      {
+        "order_id": "0",
+        "type_name": "满100减5元",
+        "type_money": "5.00",
+        "min_goods_amount": "100.00",
+        "use_start_date": "2017-04-21 00:00:00",
+        "use_end_date": "2017-05-21 00:00:00",
+        "cate":"全品类"
+      },
+      {
+        "order_id": "0",
+        "type_name": "满100减5元",
+        "type_money": "5.00",
+        "cate":"全品类",
+        "min_goods_amount": "100.00",
+        "use_start_date": "2017-04-21 00:00:00",
+        "use_end_date": "2017-04-30 00:00:00"
+      },
+      {
+        "order_id": "0",
+        "type_name": "满100减5元",
+        "type_money": "5.00",
+        "cate":"全品类",
+        "min_goods_amount": "100.00",
+        "use_start_date": "2017-04-21 00:00:00",
+        "use_end_date": "2017-05-21 00:00:00"
+      },
+      {
+        "order_id": "1",
+        "cate":"全品类",
+        "type_name": "满100减5元",
+        "type_money": "5.00",
+        "min_goods_amount": "100.00",
+        "use_start_date": "2017-04-21 00:00:00",
+        "use_end_date": "2017-05-21 00:00:00"
+      }
+    ]
+  },
+  "bonus_list": [
+    {
+      "type_name": "满100减5元",
+      "type_monney": "5.00"
+    },
+    {
+      "type_name": "满100减5元",
+      "type_monney": "5.00"
+    },
+    {
+      "type_name": "满100减5元",
+      "type_monney": "5.00"
+    },
+    {
+      "type_name": "满100减5元",
+      "type_monney": "5.00"
+    },
+    {
+      "type_name": "满100减5元",
+      "type_monney": "5.00"
+    },
+    {
+      "type_name": "满100减5元",
+      "type_monney": "52.00"
+    },
+    {
+      "type_name": "满100减5元",
+      "type_monney": "54.00"
+    },
+    {
+      "type_name": "满100减5元",
+      "type_monney": "150.00"
+    },
+    {
+      "type_name": "满100减5元",
+      "type_monney": "5.00"
+    }
+  ]
+}
+
