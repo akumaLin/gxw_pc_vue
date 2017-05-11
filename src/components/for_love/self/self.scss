@@ -1,0 +1,47 @@
+.search_div{
+  display: inline-block;
+  position: relative;
+  .search{
+    width: 524px;
+    height: 56px;
+    border: 1px solid #8E8E8E;
+    border-radius: 4px;
+    box-sizing: border-box;
+    padding-left: 60px;
+  }
+  .search_icon{
+    position: absolute;
+    top:0;
+    bottom: 0;
+    margin: auto;
+    left: 5px;
+    width: 43px;
+    height: 43px;
+  }
+  .self_x{
+    position: absolute;
+    top:0;
+    bottom: 0;
+    margin: auto;
+    right: 16px;
+    width: 25px;
+    height: 25px;
+  }
+}
+
+.page_change{
+ float: right;
+  margin-top: 30px;
+  margin-right: 20px;
+  font-family: '.PingFangSC-Regular';
+  font-size: 18px;
+  color: #646464;
+  letter-spacing: 0;
+}
+.next_page{
+  font-family: '.PingFangSC-Regular';
+  font-size: 18px;
+  color: chocolate;
+  letter-spacing: 0;
+  line-height: 19px;
+}

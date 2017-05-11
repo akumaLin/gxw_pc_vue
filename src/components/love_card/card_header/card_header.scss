@@ -1,0 +1,109 @@
+#card_header{
+  overflow: hidden;
+  height: 700px;
+}
+.love_rule{
+  font-family:'.PingFangSC-Regular' ;
+  font-size: 18px;
+  color: #3B3B3B;
+  letter-spacing: -0.52px;
+  margin-top: 504px;
+  padding-left: 77px;
+  margin-bottom: 15px;
+}
+.rule_text{
+  padding-left: 77px;
+  p{
+    font-family:'.PingFangSC-Regular' ;
+    font-size: 14px;
+    color: #4E4E4E;
+    letter-spacing: -0.68px;
+    line-height: 22px;
+  }
+}
+.card_520{
+  height: 248px;
+  width:786px ;
+
+  img{
+    height: 220px;
+    width: 196px;
+    margin-top: 11px;
+    margin-left: 64px;
+  }
+  .text_520{
+    display: inline-block;
+    margin-top: 70px;
+    vertical-align: top;
+    margin-left: 25px;
+    h1{
+      font-family: '.PingFangSC-Semibold';
+      font-size: 18px;
+      color: #4E4E4E;
+      letter-spacing: -1.3px;
+      margin-bottom: 10px;
+    }
+    p{
+
+      font-size: 14px;
+      color: #4E4E4E;
+      letter-spacing: 0;
+      line-height: 20px;
+    }
+
+    .href_520{
+      width: 400px;
+      height: 39px;
+      line-height: 39px;
+      margin-top: 20px;
+      border: 1px solid #F74949;
+      border-radius: 4px;
+      padding-left: 18px;
+      font-family:'.PingFangSC-Regular' ;
+      font-size: 14px;
+      color: #F74949;
+      letter-spacing: -0.58px;
+      .href_btn{
+        background: #F74949;
+        border-radius: 100px;
+        color: white;
+        padding:3px 8px 3px 8px;
+        font-family:'.PingFangSC-Regular';
+        font-size: 12px;
+        color: #FFFFFF;
+        letter-spacing: -0.5px;
+      }
+    }
+  }
+}
+.margin_520{
+  margin-top: 50px;
+  margin-left: 90px;
+}
+.margin_13{
+  margin-left: 284px;
+  margin-top: 18px;
+  img{
+    margin-left: 15px;
+  }
+}
+.text-13{
+  padding-left: 100px;
+}
+.href_13{
+  margin-left: -50px;
+}
+.text-hec{
+  width: 280px;
+}
+.last_text{
+  padding-left: 100px;
+  margin-top: 30px;
+  font-family: '.PingFangSC-Regular';
+  font-size: 14px;
+  color: #4E4E4E;
+  letter-spacing: -1.01px;
+}
+.last_img{
+  margin-top: 40px;
+}

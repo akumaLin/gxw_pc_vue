@@ -1,0 +1,161 @@
+/*
+* @Author: wjj
+* @Date:   2017-05-09 11:57:05
+* @Last Modified by:   wjj
+* @Last Modified time: 2017-05-09 13:38:44
+*/
+.clearfix:after {
+    content: "\200B";
+    display: block;
+    height: 0;
+    clear: both;
+}
+.clearfix {
+    *zoom: 1;
+}
+.wrap-provice{
+    box-sizing: border-box;
+    width:1184px;
+    margin:0 auto;
+    .provice-title{
+        height:56px;
+        .provice-pre-next{
+            font-size: 18px;
+            color: #646464;
+            letter-spacing: 0;
+            float:right;
+            span{
+                cursor:pointer;
+                height:56px;
+                line-height: 56px;
+                text-align: left;
+                width:98px;
+                height:56px;
+                display: inline-block;
+            }
+            .next{
+                color: #003434;
+            }
+        }
+    }
+    .provice-list{
+        width:1184px;
+        margin:0 auto;
+        margin-top:14px;
+        .provice-item{
+            margin-bottom:16px;
+            height:107px;
+            width:1184px;
+            border: 1px solid #CCCCCC;
+            border-radius: 4px;
+            color: #646464;
+            dt,dd{
+                float: left;
+            }
+            dt{
+                margin-left:22.6px;
+                width:56.6px;
+                height:53.6px;
+                margin-top:25px;
+                position:relative;
+                img{
+                    width:100%;
+                    height:100%;
+                }
+                p{
+                    position:absolute;
+                    display:inline-block;
+                    font-size: 18px;
+                    color: #646464;
+                    letter-spacing: 0;
+                    top:25px;
+                    left:20px;
+                }
+            }
+            .provice-name{
+                margin-left:52px;
+                margin-top:49px;
+                font-size: 18px;
+                color: #D73333;
+                width:76px;
+            }
+            .provice-join{
+                margin-left:55px;
+                height:25px;
+                line-height:25px;
+                width:225px;
+                margin-top:49px;
+                font-size: 18px;
+                color: #646464;
+                letter-spacing: 0;
+                background: url('../../../assets/images/person.png') no-repeat center center ;
+                p{
+                    display:inline-block;
+                    width:100px;
+                    height:25px;
+                    line-height:25px;
+                }
+                .person{
+                    padding-top:1px;
+                    margin-left:13px;
+                    padding-left: 7px;
+                }
+            }
+            .provice-zan{
+                margin-left:55px;
+                height:25px;
+                line-height:25px;
+                width:270px;
+                margin-top:49px;
+                font-size: 18px;
+                color: #646464;
+                letter-spacing: 0;
+                background: url('../../../assets/images/xin.png') no-repeat center center ;
+                p{
+                    display:inline-block;
+                    width:110px;
+                    height:25px;
+                    line-height:25px;
+                    text-align:right;
+                    padding-right:5px;
+                }
+                .person{
+                    padding-top:1px;
+                    padding-left:35px;
+                    text-align:center;
+                }
+            }
+            .provice-donate{
+                margin-left:55px;
+                height:25px;
+                line-height:25px;
+                width:270px;
+                margin-top:49px;
+                font-size: 18px;
+                color: #646464;
+                letter-spacing: 0;
+                background: url('../../../assets/images/money.png') no-repeat center center ;
+                p{
+                    display:inline-block;
+                    width:110px;
+                    height:25px;
+                    line-height:25px;
+                    text-align:right;
+                    padding-right:5px;
+                }
+                .person{
+                    padding-top:1px;
+                    padding-left:35px;
+                    text-align:center;
+                }
+            }
+        }
+    }
+  .provice_info{
+    font-family: '.PingFangSC-Regular';
+    font-size: 14px;
+    color: #646464;
+    letter-spacing: 0;
+    margin-top: 20px;
+  }
+}

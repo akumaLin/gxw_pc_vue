@@ -12,10 +12,14 @@
           </div>
       </div>
       <p class="my_go">我的益行</p>
-      <div class="my_go_info">
+      <div class="my_go_info" v-if="false">
         <p>与友骑行，在路上，欣赏沿途风景。</p>
         <img src="../../../assets/images/my_info_bg.png" alt="">
         <p>2017-5-22   13:55:33</p>
+      </div>
+      <div class="my_go_info info_mar_top">
+        <p>您尚未参加集赞活动哦，快去参加吧</p>
+         <button class="go_now">立即参加</button>
       </div>
     </div>
   </div>

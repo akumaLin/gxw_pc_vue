@@ -1,0 +1,167 @@
+.wrap-uploadhead{
+    width:566px;
+    height:766px;
+    position:fixed;
+  z-index: 9999;
+    top:50%;
+    left:50%;
+    transform:translate(-50%,-50%);
+    background: #FFFFFF;
+    border: 1px solid #E6E6E6;
+    box-shadow: 0 5px 6px 0 rgba(145,145,145,0.50);
+    .close{
+        font-size:25px;
+        border-radius: 100px;
+        color:#D8D8D8 ;
+        position:absolute;
+        top:16px;
+        right:16px;
+        cursor:pointer;
+    }
+    .text{
+        box-sizing: border-box;
+        margin-top:57px;
+        margin-left: 41.3px;
+        width:486px;
+        height:124px;
+        resize: none;
+        padding:11px;
+        outline:none;
+
+        border: 1px solid #CECECE;
+    }
+    .word-num{
+        position:absolute;
+        right:60px;
+        top:156px;
+        font-size: 13px;
+        color: #6C6C6C;
+        letter-spacing: -0.44px;
+    }
+    h2{
+        height:19px;
+        width:64px;
+        margin-left:39px;
+        margin-top:22px;
+        font-size: 16px;
+        color: #434343;
+        letter-spacing: -0.55px;
+    }
+    .img-box{
+        margin-top:14px;
+        margin-left:39px;
+        margin-bottom:23px;
+        .img-item{
+            cursor:pointer;
+            width:82px;
+            height:82px;
+            float:left;
+            background:url('../../../assets/images/upload-bg.png') no-repeat;
+            background-size:100% 100%;
+        }
+    }
+    .upload-area{
+        margin-left:39px;
+        position: relative;
+        display: inline-block;
+        width:250px;
+        p{
+            height: 40px;
+          line-height: 40px;
+            margin-left:4px;
+            float:left;
+            display:inline-block;
+            font-size: 13px;
+            color: #434343;
+            letter-spacing: -0.44px;
+        }
+      .address>select{
+        border: 1px solid transparent!important;
+      }
+      .null-div_pro{
+        height: 50px;
+        width: 50px;
+        background: white;
+        position: absolute;
+        right: 0;
+
+      }
+    }
+    .uploadnow{
+        margin:0 auto;
+        margin-top:32px;
+        width:217px;
+        height:38px;
+        line-height:38px;
+        background: #EC7070;
+        border-radius: 100px;
+        font-size: 18px;
+        color: #FFFFFF;
+        text-align: center;
+        letter-spacing: 0;
+        cursor:pointer;
+        user-select:none;
+    }
+    .lizi{
+        display:block;
+        margin-top:19px;
+        margin-left:39px;
+        text-align:left;
+    }
+    .carousel-3d-container {
+        z-index:999;
+        height: 200px!important;
+      .carousel-3d-slider{
+        border: none;
+        //padding: 20px;
+        height: 142px!important;
+        width: 140px!important;
+        box-sizing: border-box;
+        background: #FFFFFF;
+        border-radius:15px;
+        // top:-100px;
+        opacity: 0.7!important;
+      }
+    }
+    .carousel-3d-slider.current{
+      height: 198px!important;
+      opacity: 1!important;
+      top:0;
+    }
+  .avatar-uploader.up_img{
+    height:82px;
+    width: 82px;
+    line-height: 82px;
+    text-align: center;
+    margin-left: 41px;
+    border: 1px solid gainsboro;
+    margin-top: 15px;
+    margin-bottom: 15px;
+    .avatar.up_img{
+      height:82px;
+      width: 82px;
+    }
+  }
+
+  .container{
+    height:82px!important;
+    width: 82px!important;
+    .vue-base64-file-upload{
+      height:82px!important;
+      width: 82px!important;
+
+    }
+    .vue-base64-file-upload-wrapper{
+      display: block;
+      height:82px!important;
+      width: 82px!important;
+
+    }
+  }
+}
+.my_images{
+  display: block;
+  height:82px!important;
+  width: 82px!important;
+}
+

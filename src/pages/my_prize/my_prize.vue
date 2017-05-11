@@ -3,8 +3,10 @@
     <my_head></my_head>
     <get_card :wordNum="wordNum"></get_card>
     <right_navbar></right_navbar>
+    <none_sort></none_sort>
     <scores :pointCode="pointCode"></scores>
     <people :shareUser="shareUser"></people>
+
     <real_prize :prize="prize"></real_prize>
     <coupon :coupon="coupon,timeout"></coupon>
   </div>
@@ -18,6 +20,7 @@
   import people from "@/components/my_prize/people/people.vue"
   import real_prize from "@/components/my_prize/real_prize/real_prize.vue"
   import coupon from "@/components/my_prize/coupon/coupon.vue"
+  import none_sort from "@/components/my_prize/none_sort/none_sort.vue"
   export default {
     name: 'my_prize',
     data(){
@@ -42,7 +45,8 @@
       scores,
       people,
       real_prize,
-      coupon
+      coupon,
+      none_sort
     },
     created(){
       var nowThis = this

@@ -1,0 +1,45 @@
+#sort_num{
+  padding-bottom: 10vh;
+}
+.honor{
+  width: 539px;
+  height: 98px;
+  margin: auto;
+  line-height: 75px;
+  text-align: center;
+  font-family:'.PingFangSC-Medium' ;
+  font-size: 36px;
+  color: #FFFFFF;
+  letter-spacing: -3.35px;
+  margin-top: 51px;
+}
+.sort_panel{
+  margin: auto;
+  width: 455px;
+  height: 56.4px;
+  overflow: hidden;
+  margin-top: 41px;
+  margin-bottom: 40px;
+  border: 1px solid #D73333;
+  li{
+    display: inline-block;
+    height: 56.4px;
+    width: 226px;
+    text-align: center;
+    line-height: 56.4px;
+    border-radius: 3px;
+    margin: 0px;
+    float: left;
+    &:first-child{
+      float: right;
+    }
+
+  }
+}
+.router-link-active{
+   color: white;
+  height: 100%;
+  background: #D83333;
+  border-radius: 0 2px 2px 2px;
+  display: block;
+}
