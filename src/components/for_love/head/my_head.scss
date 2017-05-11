@@ -51,6 +51,9 @@
     letter-spacing: -2.6px;
     margin-bottom: 10px;
   }
+  p:last-child span:first-child{
+    margin-left: 0;
+  }
   p:last-child span{
     font-family: '.PingFangSC-Regular';
     font-size:20px;

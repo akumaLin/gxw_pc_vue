@@ -17,9 +17,7 @@
       :file-list="fileList"
       :auto-upload="false"
       :on-change="onChange"
-      :on-success="handleAvatarSuccess"
-      ref="upload"
-      :before-upload="beforeAvatarUpload">
+      ref="upload">
       <img v-if="imageUrl" :src="imageUrl" class="avatar up_img">
       <i v-else class="el-icon-plus avatar-uploader-icon"></i>
     </el-upload>
@@ -60,60 +58,57 @@
     data () {
       return {
         /*  action:"https://jsonplaceholder.typicode.com/posts/",*/
-        province: "福建省",
+        province: "请选择省份",
         up_text_info: "图片上传中",
-        id_num:"",
         fileList: [],
         imageUrl: 0,
+        outUrl:"",
         loading2: false,
         text: '',
         src: [require('../../../assets/images/01.png'), require('../../../assets/images/02.png'), require('../../../assets/images/03.png'), require('../../../assets/images/04.png')]
       }
     },
-    props: [],
+    props: ["id_num"],
+    created(){
+
+
+    },
+
+
     methods: {
-      handleAvatarSuccess(res, file) {
-
-
-      },
-      beforeAvatarUpload(file) {
-
-      },
       onSelected(val){
-          this.provinces=val.province
-        console.log(this.provinces)
+        this.provinces=val.province
       }
       ,
       onChange(file, fileList){
-      /*  this.imageUrl = file.url*/
-       /* console.log(this.text)*/
         var now_this=this
         this.convertImgToBase64(file.url, function(base64Img){
-           /* console.log(base64Img)*/
-          now_this.imageUrl = base64Img
+          now_this.imageUrl=base64Img
+          now_this.outUrl=encodeURIComponent(now_this.imageUrl)
+       /*   alert(now_this.outUrl)*/
         });
 
       },
       submitUpload() {
+          this.$emit("myhead")
           if(this.imageUrl==0){
               return 0
           }else {
             this.loading2 = true
-            axios.post('https://jsonplaceholder.typicode.com/posts/?query={"user_id":' + '"'+ this.id_num +'"'+ ',"image":'+'"'+ this.imageUrl+'"'+ "}").then(function (res) {
+            var now_this=this
+            axios({
+              method: 'post',
+              url: 'http://192.168.1.25/gxw_mobile3/Shop/Loves/addImgTitle',
+              data:'query={"user_id":' + '"'+ this.id_num +'"'+ ',"image":'+'"'+ this.text+'"'+',"address":'+'"'+this.provinces+'"'+',"title":'+'"'+this.text+'"'+ "}",
+            }).then(function (res) {
                 if(res.data.result==true){
-                  this.up_text_info = res.data.message
-                  let now_this = this
+                  now_this.up_text_info = res.data.message
                   setTimeout(function () {
-                    this.loading2 = false
+                    now_this.loading2 = false
                     now_this.$emit('closeupload')
                   }, 2000)
                 }
             })
-
-
-
-
-            /*this.$refs.upload.submit();*/
           }
 
 

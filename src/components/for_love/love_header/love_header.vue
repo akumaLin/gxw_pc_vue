@@ -2,11 +2,11 @@
   <div id="love_header" :style="{background: 'url(' +forlove_bg + ') no-repeat',backgroundSize:'100% 100%'}">
     <ul class="love_num">
       <li class="">
-        <p>98798678</p>
+        <p v-text="imgCount.sum"></p>
         <p>共享网收到赞</p>
       </li>
       <li class="">
-        <p>¥98798678</p>
+        <p >¥<span v-text="imgCount.sum_money"></span></p>
         <p>共享网捐献金额</p>
       </li>
     </ul>
@@ -21,7 +21,7 @@
       <p> 4、游客可通过第三方授权登陆点赞，每位用户对每个照片发布者仅有一次点赞权。（注册既享188元新人红包）。</p>
       <p> 5、请遵守合理规则参与本活动，对于不合规手段进行恶意刷赞的共享网有权取消用户获奖资格。</p>
     </div>
-    <button class="add_now" @click="showUp">立即参与</button>
+    <button class="add_now" @click="showUp" v-if="go_now">立即参与</button>
 
   </div>
 </template>
@@ -29,16 +29,22 @@
 
   export default {
     name: '',
+    props:["imgCount","go_now"],
     data(){
       return {
+
         forlove_bg: require("../../../assets/images/forlove_yx.png"),
       }
     },
+  craeted(){
+        var now_this=this
+
+  },
     methods:{
       showUp(){
         this.$emit('showupload')
       }
-    }
+    },
 
   }
 </script>

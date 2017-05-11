@@ -23,7 +23,9 @@ var proxyTable = config.dev.proxyTable
 var app = express()
 
 var appData = require('../data.json')
-var prizes = appData;
+var appData2 = require('../data2.json')
+var forlove=appData2
+var prizes =appData;
 var bonus_list=appData.bonus_list;
 
 var apiRoutes = express.Router()
@@ -32,6 +34,12 @@ apiRoutes.get('/bonus_list', function (req, res) {
   res.json({
     errno: 0,
     data: bonus_list
+  })
+})
+apiRoutes.get('/forlove', function (req, res) {
+  res.json({
+    errno: 0,
+    data: forlove
   })
 })
 apiRoutes.get('/prizes', function (req, res) {
