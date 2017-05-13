@@ -15,8 +15,10 @@
         <div class="solorank-list" >
             <dl class="solorank-item clearfix" v-for="(item, index) in listImgTitle">
                 <dt>
-                    <img  v-if="index <= 2" :src='src[index]'  alt="">
-                    <p v-if="index > 2" >{{ (index + 1) | getdlb}}</p>
+                    <img  v-if="item.ranking==1" :src='src[0]'  alt="">
+                    <img  v-if="item.ranking==2" :src='src[1]'  alt="">
+                    <img  v-if="item.ranking==3" :src='src[2]'  alt="">
+                     <p v-if="item.ranking > 3" > {{item.ranking}}</p>
                 </dt>
                 <dd class="header-img">
                     <img :src="item.user_img" alt="">
@@ -135,7 +137,7 @@ export default {
              data:'query={"user_id":' + '"'+ this.id_num +'"'+ ',"img_id":'+'"'+ id+'"'+ "}",
            }).then(function (res) {
              if(res.data.result==true){
-               axios.get('http://192.168.1.25/gxw_mobile3/Shop/Loves/imgTitleInfo?query={"user_id":' + this.id_num + '}')
+               axios.get('http://192.168.1.25/gxw_mobile3/Shop/Loves/listImgTitle?query={"user_id":' +now_this.id_num + '}')
                  .then(function (respond){
                    now_this.listImgTitle =respond.data.list
                  })

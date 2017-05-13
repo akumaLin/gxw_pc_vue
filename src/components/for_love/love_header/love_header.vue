@@ -26,7 +26,7 @@
   </div>
 </template>
 <script type="text/ecmascript-6">
-
+  import { Message } from 'element-ui'
   export default {
     name: '',
     props:["imgCount","go_now","id_num"],

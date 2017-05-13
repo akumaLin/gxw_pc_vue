@@ -53,6 +53,7 @@
 <script>
   import {Carousel3d, Slide} from 'vue-carousel-3d';
   import VDistpicker from 'v-distpicker'
+  import { Message } from 'element-ui'
   import axios from 'axios';
   export default {
     data () {
@@ -95,7 +96,10 @@
       },
       submitUpload() {
           if(this.imageUrl==0){
-              return 0
+            Message({
+              message: '信息填写不完整',
+              type: 'warning'
+            });
           }else {
             this.loading2 = true
             var now_this=this

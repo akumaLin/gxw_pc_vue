@@ -111,7 +111,7 @@
                data:'query={"user_id":' + '"'+ this.id_num +'"'+ ',"img_id":'+'"'+ id+'"'+ "}",
              }).then(function (res) {
                  if(res.data.result==true){
-                   axios.get('http://192.168.1.25/gxw_mobile3/Shop/Loves/imgTitleInfo?query={"user_id":' + this.id_num + '}')
+                   axios.get('http://192.168.1.25/gxw_mobile3/Shop/Loves/imgTitleInfo?query={"user_id":' +now_this.id_num + '}')
                      .then(function (respon){
                        now_this.imgTitleInfo =respon.data.list
                      })
