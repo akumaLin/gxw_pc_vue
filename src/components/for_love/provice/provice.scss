@@ -1,9 +1,4 @@
-/*
-* @Author: wjj
-* @Date:   2017-05-09 11:57:05
-* @Last Modified by:   wjj
-* @Last Modified time: 2017-05-09 13:38:44
-*/
+
 .clearfix:after {
     content: "\200B";
     display: block;
@@ -36,6 +31,9 @@
             .next{
                 color: #003434;
             }
+          .next1{
+            color: grey!important;
+          }
         }
     }
     .provice-list{
@@ -122,7 +120,7 @@
                 .person{
                     padding-top:1px;
                     padding-left:35px;
-                    text-align:center;
+                    text-align:left;
                 }
             }
             .provice-donate{
@@ -146,7 +144,10 @@
                 .person{
                     padding-top:1px;
                     padding-left:35px;
-                    text-align:center;
+                    text-align:left!important;
+                  .provice_right_png{
+                    margin-right: 30px;
+                  }
                 }
             }
         }

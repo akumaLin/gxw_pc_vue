@@ -1,8 +1,8 @@
 <template>
   <div id="for_love">
-    <love_header @showupload="show=true" :imgCount="imgCount" :go_now="go_now"></love_header>
+    <love_header @showupload="show=true" :imgCount="imgCount" :id_num="id_num" :go_now="go_now"></love_header>
     <uploadhead v-if="show" @closeupload="isShow" :id_num="id_num" @myhead="myheads" ></uploadhead>
-    <my_head @showupload1="show=true" :id_num="id_num" v-if="show_myhead_modul"></my_head>
+    <my_head @showMyhead="head_Show" @img_change="my_headchange" :id_num="id_num" v-if="show_myhead_modul"></my_head>
     <sort_num></sort_num>
     <img src="../../assets/images/520adbanner.png" alt="" class="last_img">
   </div>
@@ -20,14 +20,14 @@
             return {
                 show:false,
                 id_num:"",
-                go_now:true,
+                go_now:false,
                 imgCount:"",
-              show_myhead_modul:false
+                show_myhead_modul:true
             }
         },
       created(){
         this.id_num=this.getCookie("GXW_user_id")
-        if(this.id_num!=null){
+
             var now_this=this
             axios({
               method: 'get',
@@ -36,9 +36,18 @@
                     now_this.imgCount=res.data.list
             })
 
+        if (this.id_num != null) {
+          var now_this = this
+          axios.get('http://192.168.1.25/gxw_mobile3/Shop/Loves/imgTitleInfo?query={"user_id":' + this.id_num + '}')
+            .then(function (res) {
+              if (res.data.result == false){
+                now_this.go_now=true
+              }
+        })
 
+        }else {
+          now_this.go_now=true
         }
-
 
       },
       methods:{
@@ -59,10 +68,21 @@
         myheads(){
           this.show_myhead_modul=true
         },
-        isShow(){
-            this.show=!this.show
-          this.go_now=!this.go_now
+        myheads_step(){
+
         }
+      ,
+        isShow(){
+            this.show=!this.show //点击立即上传成功触发的上传框显示
+          this.go_now=false //点击立即上传成功触发立即上传隐藏
+        },
+        head_Show(){
+          this.show_myhead_modul=!this.show_myhead_modul//进入页面若为参与不展示我的照片详情
+        },
+        my_headchange(){
+          this.show=!this.show
+        },
+
       },
       components:{
         love_header,
@@ -78,7 +98,5 @@
   height: auto;
   margin: auto;
 }
-.last_img{
-  margin-top: 40px;
-}
+
 </style>

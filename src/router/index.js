@@ -6,17 +6,18 @@ import love_card from '@/pages/love_card/love_card.vue'
 import self from '@/components/for_love/self/self.vue'
 import provice from "@/components/for_love/provice/provice.vue"
 import solorank from "@/components/for_love/solorank/solorank.vue"
+import provice_page from '@/pages/provice_page/provice_page.vue'
 Vue.use(Router)
 
 export default new Router({
   routes: [
-    {
+  /*  {
       path: '/my_prize',
       name: 'my_prize',
       component: my_prize
-    },
+    },*/
     {
-      path: '/for_love/provice',
+      path: '/for_love',
       name: 'for_love',
       component:for_love,
       children:[
@@ -26,9 +27,14 @@ export default new Router({
 
     },
     {
+      path: '/provice_page',
+      name: 'provice_page',
+      component:provice_page,
+    },
+   /* {
       path: '/',
       name: 'love_card',
       component:love_card
-    }
+    }*/
   ]
 })

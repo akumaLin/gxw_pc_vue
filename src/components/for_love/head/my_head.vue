@@ -1,5 +1,5 @@
 <template>
-  <div class="my_info">
+  <div class="my_info" v-if="info_show">
     <div class="my_info_bg" :style="{background: 'url(' + my_info_bg + ') no-repeat',backgroundSize:'100% 100%'}">
       <div class="header_png"
            :style="{background: 'url(' + imgTitleInfo.user_img + ') no-repeat',backgroundSize:'100% 100%'}"></div>
@@ -20,23 +20,24 @@
         {{imgTitleInfo.add_time}}
         <span class="delete_my_info" @click="del(imgTitleInfo.img_id)">删除</span>
         <vue-star animate="animated rubberBand" color="#F05654" class="heart">
-          <a slot="icon" class="iconfont icon-xin" @click="open" :plain="true">&#xe605;</a>
+          <a slot="icon" class="iconfont icon-xin"  v-if="imgTitleInfo.is_likes==1" @click="open(imgTitleInfo.is_likes,imgTitleInfo.img_id)" :plain="true">&#xe605;</a>
+          <a slot="icon" class="iconfont icon-xin" v-if="imgTitleInfo.is_likes==0" @click="open(imgTitleInfo.is_likes,imgTitleInfo.img_id)" :plain="true">&#xe678;</a>
         </vue-star>
-        <span class="star_heart">点赞<span class="heart_num" v-text="imgTitleInfo.likes">3131</span></span>
+        <span class="star_heart">点赞<span class="heart_num" v-text="imgTitleInfo.likes"></span></span>
       </p>
     </div>
-    <div class="my_go_info info_mar_top" v-if="false">
-      <p>您尚未参加集赞活动哦，快去参加吧</p>
-      <button class="go_now">立即参加</button>
-    </div>
+    <!-- <div class="my_go_info info_mar_top" v-if="false">
+       <p>您尚未参加集赞活动哦，快去参加吧</p>
+       <button class="go_now">立即参加</button>
+     </div>-->
     <div class="change_img_div" v-if="show_step">
-      <img src="../../../assets/images/step_two.png" class="step_img" alt="">
+      <img :src="step_src" class="step_img" alt="">
       <ul class="step_text">
         <li>提交成功</li>
         <li>审核中</li>
-        <li>成功发布</li>
+        <li v-text="state_img"></li>
       </ul>
-      <p class="warn_false">您的照片太过模糊，请调整后重新上传</p>
+      <p class="warn_false" v-text="warn_false=imgTitleInfo.content"></p>
       <button class="edit-img" @click="changImg">修改照片</button>
     </div>
   </div>
@@ -44,62 +45,118 @@
 <script type="text/ecmascript-6">
   import axios from 'axios';
   import VueStar from 'vue-star'
-  import { Message } from 'element-ui'
+  import {Message} from 'element-ui'
   export default {
     name: 'header',
-    components:{
+    components: {
       VueStar,
       Message
     },
-    props:["id_num"],
+    props: ["id_num"],
     data(){
       return {
-        show_world:false,
-        show_step:false,
-        imgTitleInfo:"",
+        info_show:false,
+        show_world: false,
+        show_step: false,
+        imgTitleInfo: "",
+        state_img:"成功发布",
+        warn_false: "您的照片太过模糊，请调整后重新上传",
         header_bg: require("../../../assets/images/520adbanner.png"),
         my_info_bg: require("../../../assets/images/my_info_bg.png"),
-        header_png: require("../../../assets/images/my_info_bg.png")
+        header_png: require("../../../assets/images/my_info_bg.png"),
+        step_src: require("../../../assets/images/step_two.png"),
       }
     },
     created(){
+      if (this.id_num != null) {
+        var now_this = this
+        axios.get('http://192.168.1.25/gxw_mobile3/Shop/Loves/imgTitleInfo?query={"user_id":' + this.id_num + '}')
+          .then(function (res) {
+            if (res.data.result == false) {
+              now_this.$emit("showMyhead")
+            } else {
+              now_this.info_show=true
+              now_this.imgTitleInfo = res.data.list
+              if (res.data.list.is_pass == 1) {
+                now_this.show_world = true
+              } else if (res.data.list.is_pass == 2) {
+                now_this.step_src= require("../../../assets/images/success.png")
+                now_this.state_img="审核不通过"
+                now_this.show_step = true
 
-      if(this.id_num!=null){
-        var now_this=this
-        axios({
-          method: 'get',
-          /*url: 'http://192.168.1.25/gxw_mobile3/Shop/Loves/imgTitleInfo',*/
-          url:"/api/forlove",
-          data:'query={"user_id":' + '"'+ this.id_num +'"'+"}"
-        }).then(function (res) {
-            now_this.imgTitleInfo=res.data.data.list
-          if(res.data.data.list.is_pass==1){
-            now_this.show_world=true
-          }else {
+              } else if (res.data.list.is_pass == 3) {
 
-          }
-
-        })
+                now_this.show_step = true
+                now_this.warn_false = ""
 
 
+              }
+            }
+          })
+      } else {
+        this.$emit("showMyhead")
       }
 
     },
     methods: {
       changImg() {
-        this.$emit("showupload1");
+        this.$emit("img_change");
       },
-      open() {
+      open(val,id) {
+           if(val==0){
+               var now_this=this
+             axios({
+               method: 'post',
+               url: 'http://192.168.1.25/gxw_mobile3/Shop/Loves/likesImgTitle',
+               data:'query={"user_id":' + '"'+ this.id_num +'"'+ ',"img_id":'+'"'+ id+'"'+ "}",
+             }).then(function (res) {
+                 if(res.data.result==true){
+                   axios.get('http://192.168.1.25/gxw_mobile3/Shop/Loves/imgTitleInfo?query={"user_id":' + this.id_num + '}')
+                     .then(function (respon){
+                       now_this.imgTitleInfo =respon.data.list
+                     })
+                   Message({
+                     message: '恭喜你，点赞成功',
+                     type: 'success'
+                   });
+                 }else {
+                   Message({
+                     message: '您已经赞过了',
+                     type: 'warning'
+                   });
+                 }
+             })
+           }else{
+             Message({
+               message: '您已经赞过了',
+               type: 'warning'
+             });
+           }
 
-        Message({
-          message: '恭喜你，点赞成功',
-          type: 'success'
-        });
         /*
          Message({
          message: '您已赞过对方',
          type: 'warning'
          })*/
+      },
+      del(val){
+        axios({
+          method: 'post',
+          url: 'http://192.168.1.25/gxw_mobile3/Shop/Loves/delImgTitle',
+          data:'query={"user_id":' + '"'+ this.id_num +'"'+ ',"img_id":'+'"'+ val+'"'+ "}",
+        }).then(function (res) {
+                 if(res.data.result==true){
+                   Message({
+                     message: '删除成功',
+                     type: 'success'
+                   })
+                   console.log(应该删除了0)
+                     now_this.info_show=false
+                   console.log(应该删除了1)
+                     now_this.$emit("showMyhead")
+                   console.log(应该删除了2)
+                 }
+          })
       }
     }
 

@@ -25,7 +25,7 @@
 
     <div class="upload-area clearfix">
       <p class="pro_my">所在省份></p>
-      <v-distpicker only-province :province="province"  @selected="onSelected"></v-distpicker>
+      <v-distpicker only-province  :placeholders="placeholders"  @selected="onSelected"></v-distpicker>
       <!--<div class="null-div_pro"></div>-->
     </div>
     <div class="uploadnow" @click="submitUpload">
@@ -61,6 +61,10 @@
         province: "请选择省份",
         up_text_info: "图片上传中",
         fileList: [],
+        placeholders: {
+          province: '请选择省份',
+
+        },
         imageUrl: 0,
         outUrl:"",
         loading2: false,
@@ -90,7 +94,6 @@
 
       },
       submitUpload() {
-          this.$emit("myhead")
           if(this.imageUrl==0){
               return 0
           }else {
@@ -99,15 +102,14 @@
             axios({
               method: 'post',
               url: 'http://192.168.1.25/gxw_mobile3/Shop/Loves/addImgTitle',
-              data:'query={"user_id":' + '"'+ this.id_num +'"'+ ',"image":'+'"'+ this.text+'"'+',"address":'+'"'+this.provinces+'"'+',"title":'+'"'+this.text+'"'+ "}",
+              data:'query={"user_id":' + '"'+ this.id_num +'"'+ ',"image":'+'"'+ this.outUrl+'"'+',"address":'+'"'+this.provinces+'"'+',"title":'+'"'+this.text+'"'+ "}",
             }).then(function (res) {
-                if(res.data.result==true){
                   now_this.up_text_info = res.data.message
                   setTimeout(function () {
                     now_this.loading2 = false
                     now_this.$emit('closeupload')
+                    now_this.$emit("myhead")
                   }, 2000)
-                }
             })
           }
 

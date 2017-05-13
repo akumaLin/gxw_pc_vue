@@ -29,7 +29,7 @@
 
   export default {
     name: '',
-    props:["imgCount","go_now"],
+    props:["imgCount","go_now","id_num"],
     data(){
       return {
 
@@ -42,7 +42,11 @@
   },
     methods:{
       showUp(){
-        this.$emit('showupload')
+          if(this.id_num==null){
+              window.location.href="https://www.gxw520.com/user.php?act=user_credit"
+          }else {
+            this.$emit('showupload')   //点击立即参与弹出上传框
+          }
       }
     },
 
