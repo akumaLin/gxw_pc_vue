@@ -1,7 +1,7 @@
 <template>
   <div id="for_love">
     <love_header @showupload="show=true" :imgCount="imgCount" :id_num="id_num" :go_now="go_now"></love_header>
-    <uploadhead v-if="show" @closeupload="isShow" :id_num="id_num" @myhead="myheads" ></uploadhead>
+    <uploadhead v-if="show" @closeupload="isShow" :id_num="id_num" @myhead="myheads" @closexxx="show=false" ></uploadhead>
     <my_head @showMyhead="head_Show" @img_change="my_headchange" :id_num="id_num" v-if="show_myhead_modul"></my_head>
     <sort_num></sort_num>
     <img src="../../assets/images/520adbanner.png" alt="" class="last_img">
@@ -77,7 +77,8 @@
           this.go_now=false //点击立即上传成功触发立即上传隐藏
         },
         head_Show(){
-          this.show_myhead_modul=!this.show_myhead_modul//进入页面若为参与不展示我的照片详情
+          this.show_myhead_modul=!this.show_myhead_modul//我的照片详情
+          this.go_now=true
         },
         my_headchange(){
           this.show=!this.show

@@ -116,7 +116,7 @@
 
       },
       close () {
-        this.$emit('closeupload')
+        this.$emit('closexxx')
       },
       convertImgToBase64(url, callback, outputFormat){
         var canvas = document.createElement('CANVAS'),

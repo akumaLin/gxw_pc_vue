@@ -140,6 +140,7 @@
          })*/
       },
       del(val){
+          var now_this=this
         axios({
           method: 'post',
           url: 'http://192.168.1.25/gxw_mobile3/Shop/Loves/delImgTitle',
@@ -150,11 +151,11 @@
                      message: '删除成功',
                      type: 'success'
                    })
-                   console.log(应该删除了0)
+                   console.log("应该删除了0")
                      now_this.info_show=false
-                   console.log(应该删除了1)
+                   console.log("应该删除了1")
                      now_this.$emit("showMyhead")
-                   console.log(应该删除了2)
+                   console.log("应该删除了2")
                  }
           })
       }
