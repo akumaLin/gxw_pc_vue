@@ -50,7 +50,7 @@ export default {
             pre_color:true,
             total:"",
             page:1,
-            pageSize:2,
+            pageSize:13,
 
             src: [require('../../../assets/images/first.png'),require('../../../assets/images/second.png'),require('../../../assets/images/third.png')]
         }
@@ -101,7 +101,6 @@ export default {
     next(){
       var now_this=this
         if (this.page == this.total){
-
         } else {
           axios({
             method: 'get',

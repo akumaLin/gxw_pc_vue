@@ -28,7 +28,7 @@
                     编号：<span v-text="item.user_code"></span>
                 </dd>
                 <dd class="solorank-work">
-                    <img :src="item.imageurl" alt="" @click="show_big(item.imageurl)">
+                    <img :src="item.imageurl" alt="" @click="show_big(item.imageurl,item.title)">
                 </dd>
                 <dd class="solorank-money">
                     捐献：¥<span v-text="item.money"></span>
@@ -47,7 +47,7 @@
         </div>
         <div  class="detail_img" v-if="detail_img">
           <div class="cover"></div>
-          <h1 class="img-title">qe123123</h1>
+          <h1 class="img-title" v-text="detail_title"></h1>
           <img :src="bigSrc">
           <img src="../../../assets/images/close.png" alt="" class="close_detail_img" @click="detail_img=false">
         </div>
@@ -62,11 +62,12 @@ export default {
         return {
           pre_color:true,
           next_color:false,
+          detail_title:"",
             total:"",
             user_code:"",
             page:"1",
             id_num:"",
-            pageSize:"4",
+            pageSize:"13",
             issearch:false,
             listImgTitle:[],
             src: [require('../../../assets/images/first.png'),require('../../../assets/images/second.png'),require('../../../assets/images/third.png')],
@@ -200,7 +201,6 @@ export default {
          var now_this=this
          if(this.issearch!=true) {
            if (this.page == this.total) {
-             now_this.pre_color=false
            } else {
              axios({
                method: 'get',
@@ -223,8 +223,9 @@ export default {
          }
 
        },
-       show_big(val){
+       show_big(val,title){
          this.bigSrc=val
+         this.detail_title=title
          this.detail_img=true
        }
 

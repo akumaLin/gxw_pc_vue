@@ -14,7 +14,7 @@
       </div>
     </div>
     <div class="solorank-list" >
-      <dl class="solorank-item clearfix" v-for="(item, index) in listImgTitle">
+      <dl class="solorank-item clearfix" v-for="(item, index) in listImgTitle"   >
         <dt>
           <img  v-if="index <= 2" :src='src[index]'  alt="">
         <p v-if="index > 2" >{{ (index + 1) | getdlb}}</p>
@@ -29,7 +29,7 @@
           编号：<span v-text="item.user_code"></span>
         </dd>
         <dd class="solorank-work">
-          <img :src="item.imageurl" alt="">
+          <img :src="item.imageurl" alt="" @click="show_big(item.imageurl,item.title)">
         </dd>
         <dd class="solorank-money">
           捐献：¥<span v-text="item.money"></span>
@@ -50,6 +50,12 @@
       <span @click="previous" class="next" :class="{next1:pre_color}"><&nbsp;上一页</span>
       <span class="next" @click="next" :class="{next1:next_color}">下一页&nbsp;></span>
     </div>
+    <div  class="detail_img" v-if="detail_img">
+      <div class="cover"></div>
+      <h1 class="img-title" v-text="detail_title"></h1>
+      <img :src="bigSrc">
+      <img src="../../assets/images/close.png" alt="" class="close_detail_img" @click="detail_img=false">
+    </div>
   </div>
 </template>
 <script>
@@ -60,12 +66,14 @@
     data () {
       return {
         pre_color:true,
+        detail_img:false,
         next_color:false,
         total:"",
+        detail_title:"",
         user_code:"",
         page:"1",
         id_num:"",
-        pageSize:"2",
+        pageSize:"13",
         issearch:false,
         honor_bg:require("../../assets/images/honor.png"),
         listImgTitle:[],
@@ -110,6 +118,7 @@
         }
         return null
       },
+      //清除
       clearValue(){
         if(this.issearch==true){
           var now_this=this
@@ -124,8 +133,9 @@
         }
         this.user_code=""
       },
-      open1(val,id) {
 
+      //点赞
+      open1(val,id) {
         if(val==0){
           var now_this=this
           axios({
@@ -156,10 +166,12 @@
           });
         }
       },
+
+      //搜索
       search(){
         var now_this=this
         if(this.user_code!=""){
-          axios.get('http://192.168.1.25/gxw_mobile3/Shop/Loves/listImgTitle?query={"user_id":'+'"'+ this.id_num+'"' + ',"search":'+'"'+ this.user_code+'"'+ '}')
+          axios.get('http://192.168.1.25/gxw_mobile3/Shop/Loves/listImgTitleAddRank?query={"user_id":'+'"'+ this.id_num+'"' + ',"search":'+'"'+ this.user_code+'"'+ ',"address":'+'"'+ this.$route.query.address +'"'+ '}')
             .then(function (res) {
               now_this.listImgTitle=res.data.list
               now_this.issearch=true
@@ -171,6 +183,7 @@
           });
         }
       },
+      //上一页
       previous(){
         if(this.issearch!=true){
           var now_this=this
@@ -194,11 +207,11 @@
         }
 
       },
+      //下一页
       next(){
         var now_this=this
         if(this.issearch!=true) {
           if (this.page == this.total) {
-            now_this.pre_color=false
           } else {
             axios({
               method: 'get',
@@ -209,7 +222,7 @@
               if(now_this.page==now_this.total){
                 now_this.next_color=true
               }
-              now_this.pre_color=false
+                now_this.pre_color=false
             })
           }
         }else {
@@ -218,6 +231,13 @@
             type: 'warning'
           })
         }
+
+      },
+      //看大图
+      show_big(val,title){
+        this.bigSrc=val
+        this.detail_title=title
+        this.detail_img=true
 
       }
 
