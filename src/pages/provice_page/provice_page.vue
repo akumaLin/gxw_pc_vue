@@ -36,6 +36,7 @@
         <dd class="solorank-money">
           捐献：¥<span v-text="item.money"></span>
         </dd>
+
         <dd class="solorank-xin">
           <!--  <img src="" alt="">-->
           <vue-star animate="animated rubberBand" color="#F05654" >
@@ -48,6 +49,7 @@
         </dd>
       </dl>
     </div>
+    <div v-if="null_people">暂无数据</div>
     <div class="pre-next bot_btn">
       <span @click="previous" class="next" :class="{next1:pre_color}"><&nbsp;上一页</span>
       <span class="next" @click="next" :class="{next1:next_color}">下一页&nbsp;></span>
@@ -73,9 +75,10 @@
         total:"",
         detail_title:"",
         user_code:"",
+        null_people:false,
         page:"1",
         id_num:"",
-        pageSize:"4",
+        pageSize:"13",
         issearch:false,
         honor_bg:require("../../assets/images/honor.png"),
         listImgTitle:[],
@@ -127,6 +130,7 @@
           axios.get('http://192.168.1.25/gxw_mobile3/Shop/Loves/listImgTitleAddRank?query={"user_id":' + '"'+ this.id_num +'"'+ ',"address":'+'"'+ this.$route.query.address+'"' +',"page":'+'"'+ this.page+'"'+',"pageSize":'+'"'+this.pageSize+'"'+"}")
             .then(function (res) {
               now_this.listImgTitle=res.data.list
+              now_this.null_people=false
               now_this.issearch=false
               if(res.data.totalpage==1){
                 now_this.next_color=true
@@ -138,35 +142,48 @@
 
       //点赞
       open1(val,id) {
-        if(val==0){
-          var now_this=this
-          axios({
-            method: 'post',
-            url: 'http://192.168.1.25/gxw_mobile3/Shop/Loves/likesImgTitle',
-            data:'query={"user_id":' + '"'+ this.id_num +'"'+ ',"img_id":'+'"'+ id+'"'+ "}",
-          }).then(function (res) {
-            if(res.data.result==true){
-              axios.get('http://192.168.1.25/gxw_mobile3/Shop/Loves/imgTitleInfo?query={"user_id":' +now_this.id_num + '}')
-                .then(function (respond){
-                  now_this.listImgTitle =respond.data.list
-                })
-              Message({
-                message: '恭喜你，点赞成功',
-                type: 'success'
-              });
+
+          if(this.id_num!=null){
+
+            if(val==0){
+              var now_this=this
+              axios({
+                method: 'post',
+                url: 'http://192.168.1.25/gxw_mobile3/Shop/Loves/likesImgTitle',
+                data:'query={"user_id":' + '"'+ this.id_num +'"'+ ',"img_id":'+'"'+ id+'"'+ "}",
+              }).then(function (res) {
+                if(res.data.result==true){
+                  axios.get('http://192.168.1.25/gxw_mobile3/Shop/Loves/imgTitleInfo?query={"user_id":' +now_this.id_num + '}')
+                    .then(function (respond){
+                      now_this.listImgTitle =respond.data.list
+                    })
+                  Message({
+                    message: '恭喜你，点赞成功',
+                    type: 'success'
+                  });
+                }else{
+                  Message({
+                    message: '您已经赞过了',
+                    type: 'warning'
+                  });
+                }
+              })
             }else{
               Message({
                 message: '您已经赞过了',
                 type: 'warning'
               });
             }
-          })
-        }else{
-          Message({
-            message: '您已经赞过了',
-            type: 'warning'
-          });
-        }
+
+
+          }else {
+            top.location.href="http://192.168.1.10/gxw520/user.php?back_act=http://192.168.1.10/gxw520/subject.php?act=love&common_type=1"
+          }
+
+
+
+
+
       },
 
       //搜索
@@ -178,9 +195,11 @@
               if(res.data.result==true){
                 now_this.listImgTitle=res.data.list
                 now_this.issearch=true
+                now_this.null_people=false
               }else {
                 now_this.listImgTitle=""
                 now_this.issearch=true
+                now_this.null_people=true
                 Message({
                   message: '暂无数据',
                   type: 'warning'

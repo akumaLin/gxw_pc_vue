@@ -104,13 +104,16 @@
         this.$emit("img_change");
       },
       open(val,id) {
-           if(val==0){
+
+           if(this.id_num!=null){
+
+             if(val==0){
                var now_this=this
-             axios({
-               method: 'post',
-               url: 'http://192.168.1.25/gxw_mobile3/Shop/Loves/likesImgTitle',
-               data:'query={"user_id":' + '"'+ this.id_num +'"'+ ',"img_id":'+'"'+ id+'"'+ "}",
-             }).then(function (res) {
+               axios({
+                 method: 'post',
+                 url: 'http://192.168.1.25/gxw_mobile3/Shop/Loves/likesImgTitle',
+                 data:'query={"user_id":' + '"'+ this.id_num +'"'+ ',"img_id":'+'"'+ id+'"'+ "}",
+               }).then(function (res) {
                  if(res.data.result==true){
                    axios.get('http://192.168.1.25/gxw_mobile3/Shop/Loves/imgTitleInfo?query={"user_id":' +now_this.id_num + '}')
                      .then(function (respon){
@@ -126,13 +129,19 @@
                      type: 'warning'
                    });
                  }
-             })
-           }else{
-             Message({
-               message: '您已经赞过了',
-               type: 'warning'
-             });
+               })
+             }else{
+               Message({
+                 message: '您已经赞过了',
+                 type: 'warning'
+               });
+             }
+
+           }else {
+             top.location.href="http://192.168.1.10/gxw520/user.php?back_act=http://192.168.1.10/gxw520/subject.php?act=love&common_type=1"
            }
+
+
 
         /*
          Message({
@@ -152,11 +161,8 @@
                      message: '删除成功',
                      type: 'success'
                    })
-                   console.log("应该删除了0")
                      now_this.info_show=false
-                   console.log("应该删除了1")
                      now_this.$emit("showMyhead")
-                   console.log("应该删除了2")
                  }
           })
       }

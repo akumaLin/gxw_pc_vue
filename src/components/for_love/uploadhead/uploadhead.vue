@@ -64,7 +64,6 @@
         fileList: [],
         placeholders: {
           province: '请选择省份',
-
         },
         imageUrl: 0,
         outUrl:"",
