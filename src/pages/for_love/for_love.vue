@@ -1,7 +1,7 @@
 <template>
   <div id="for_love">
     <love_header @showupload="show=true" :imgCount="imgCount" :id_num="id_num" :go_now="go_now"></love_header>
-    <uploadhead v-show="show" @myhead_not="show_myhead_modul=false" :not_pass="not_pass_img" :is_pass="is_pass" @closeupload="isShow" :id_num="id_num" @myhead="myheads" @closexxx="show=false" ></uploadhead>
+    <uploadhead v-if="show" @myhead_not="show_myhead_modul=false" :not_pass="not_pass_img" :isnt_pass="isnt_pass" @closeupload="isShow" :id_num="id_num" @myhead="myheads" @closexxx="show=false" ></uploadhead>
     <my_head @showMyhead="head_Show" :step3="step3" @img_change="my_headchange" :id_num="id_num" v-if="show_myhead_modul"></my_head>
     <sort_num></sort_num>
     <img src="../../assets/images/520adbanner.png" alt="" class="last_img">
@@ -22,13 +22,13 @@
                 id_num:"",
                 go_now:false,
                 step3:false,
-                is_pass:2,
+                isnt_pass:"",
                 imgCount:"",
                 show_myhead_modul:true
             }
         },
       created(){
-        this.id_num=this.getCookie("user_id")
+        this.id_num=this.getCookie("GXW_user_id")
             console.log(this.id_num)
             var now_this=this
             axios({
@@ -48,6 +48,9 @@
               if(respon.data.list.is_pass == 2){
                 now_this.isnt_pass=respon.data.list
               }
+              if (respon.data.list.is_pass ==0){
+                now_this.show_myhead_modul=false
+              }
         })
 
         }else {
@@ -56,13 +59,13 @@
 
       },
       methods:{
-        getCookie:function(user_id){
+        getCookie:function(GXW_user_id){
           if (document.cookie.length>0)
           {
-            var c_start=document.cookie.indexOf(user_id + "=")
+            var c_start=document.cookie.indexOf(GXW_user_id + "=")
             if (c_start!=-1)
             {
-              c_start=c_start + user_id.length+1
+              c_start=c_start + GXW_user_id.length+1
               var c_end=document.cookie.indexOf(";",c_start)
               if (c_end==-1) c_end=document.cookie.length
               return unescape(document.cookie.substring(c_start,c_end))

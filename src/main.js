@@ -7,9 +7,8 @@ import {  Upload } from 'element-ui'
 Vue.use(Upload)
 import { Loading } from 'element-ui'
 Vue.use(Loading)
-
-
 Vue.config.productionTip = false
+require('es6-promise').polyfill();
 
 /* eslint-disable no-new */
 new Vue({

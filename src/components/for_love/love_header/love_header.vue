@@ -43,7 +43,7 @@
     methods:{
       showUp(){
           if(this.id_num==null){
-            top.location.href="http://192.168.1.10/gxw520/user.php"
+            top.location.href="http://192.168.1.10/gxw520/user.php?back_act=http://192.168.1.10/gxw520/subject.php?act=love"
           }else {
             this.$emit('showupload')   //点击立即参与弹出上传框
           }
