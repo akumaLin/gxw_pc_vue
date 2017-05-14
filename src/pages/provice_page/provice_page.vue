@@ -75,7 +75,7 @@
         user_code:"",
         page:"1",
         id_num:"",
-        pageSize:"13",
+        pageSize:"4",
         issearch:false,
         honor_bg:require("../../assets/images/honor.png"),
         listImgTitle:[],
@@ -90,7 +90,7 @@
       var now_this=this
 
       console.log(this.$route.query.address)
-      this.id_num=this.getCookie("GXW_user_id")
+      this.id_num=this.getCookie("user_id")
       axios({
         method: 'get',
         url: 'http://192.168.1.25/gxw_mobile3/Shop/Loves/listImgTitleAddRank?query={"user_id":' + '"'+ this.id_num +'"'+ ',"address":'+'"'+ this.$route.query.address+'"' +',"page":'+'"'+ this.page+'"'+',"pageSize":'+'"'+this.pageSize+'"'+"}",
@@ -106,13 +106,13 @@
 
     ,
     methods:{
-      getCookie:function(GXW_user_id){
+      getCookie:function(user_id){
         if (document.cookie.length>0)
         {
-          var c_start=document.cookie.indexOf(GXW_user_id + "=")
+          var c_start=document.cookie.indexOf(user_id + "=")
           if (c_start!=-1)
           {
-            c_start=c_start + GXW_user_id.length+1
+            c_start=c_start + user_id.length+1
             var c_end=document.cookie.indexOf(";",c_start)
             if (c_end==-1) c_end=document.cookie.length
             return unescape(document.cookie.substring(c_start,c_end))
@@ -146,7 +146,7 @@
             data:'query={"user_id":' + '"'+ this.id_num +'"'+ ',"img_id":'+'"'+ id+'"'+ "}",
           }).then(function (res) {
             if(res.data.result==true){
-              axios.get('http://192.168.1.25/gxw_mobile3/Shop/Loves/imgTitleInfo?query={"user_id":' + this.id_num + '}')
+              axios.get('http://192.168.1.25/gxw_mobile3/Shop/Loves/imgTitleInfo?query={"user_id":' +now_this.id_num + '}')
                 .then(function (respond){
                   now_this.listImgTitle =respond.data.list
                 })
@@ -175,8 +175,17 @@
         if(this.user_code!=""){
           axios.get('http://192.168.1.25/gxw_mobile3/Shop/Loves/listImgTitleAddRank?query={"user_id":'+'"'+ this.id_num+'"' + ',"search":'+'"'+ this.user_code+'"'+ ',"address":'+'"'+ this.$route.query.address +'"'+ '}')
             .then(function (res) {
-              now_this.listImgTitle=res.data.list
-              now_this.issearch=true
+              if(res.data.result==true){
+                now_this.listImgTitle=res.data.list
+                now_this.issearch=true
+              }else {
+                now_this.listImgTitle=""
+                now_this.issearch=true
+                Message({
+                  message: '暂无数据',
+                  type: 'warning'
+                });
+              }
             })
         }else {
           Message({

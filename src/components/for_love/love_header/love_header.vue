@@ -43,7 +43,7 @@
     methods:{
       showUp(){
           if(this.id_num==null){
-              window.location.href="https://www.gxw520.com/user.php?act=user_credit"
+            top.location.href="http://192.168.1.10/gxw520/user.php"
           }else {
             this.$emit('showupload')   //点击立即参与弹出上传框
           }

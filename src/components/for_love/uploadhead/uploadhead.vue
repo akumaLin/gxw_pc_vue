@@ -59,7 +59,7 @@
     data () {
       return {
         /*  action:"https://jsonplaceholder.typicode.com/posts/",*/
-        province: "请选择省份",
+        province: "",
         up_text_info: "图片上传中",
         fileList: [],
         placeholders: {
@@ -73,7 +73,7 @@
         src: [require('../../../assets/images/01.png'), require('../../../assets/images/02.png'), require('../../../assets/images/03.png'), require('../../../assets/images/04.png')]
       }
     },
-    props: ["id_num"],
+    props: ["id_num","is_pass"],
     created(){
 
 
@@ -83,6 +83,7 @@
     methods: {
       onSelected(val){
         this.provinces=val.province
+        this.province=val.province
       }
       ,
       onChange(file, fileList){
@@ -95,7 +96,7 @@
 
       },
       submitUpload() {
-          if(this.imageUrl==0){
+          if(this.imageUrl==0||this.text==''||this.province==''){
             Message({
               message: '信息填写不完整',
               type: 'warning'
@@ -108,11 +109,16 @@
               url: 'http://192.168.1.25/gxw_mobile3/Shop/Loves/addImgTitle',
               data:'query={"user_id":' + '"'+ this.id_num +'"'+ ',"image":'+'"'+ this.outUrl+'"'+',"address":'+'"'+this.provinces+'"'+',"title":'+'"'+this.text+'"'+ "}",
             }).then(function (res) {
+                  now_this.$emit("not_pass")
+                  now_this.$emit("myhead_not")
+
                   now_this.up_text_info = res.data.message
                   setTimeout(function () {
+                    now_this.$emit("myhead")
                     now_this.loading2 = false
                     now_this.$emit('closeupload')
-                    now_this.$emit("myhead")
+
+
                   }, 2000)
             })
           }

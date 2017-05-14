@@ -7,7 +7,7 @@
         <p class="name" v-text="imgTitleInfo.username"></p>
         <p><span>收到赞：<span v-text="imgTitleInfo.likes"></span> </span>
           <span> 捐献：¥ <span v-text="imgTitleInfo.money"></span> </span>
-          <span>排名：<span v-text="imgTitleInfo.ranking"></span></span></p>
+          <span>排名：<span v-text="imgTitleInfo.ranking?imgTitleInfo.ranking:0"></span></span></p>
       </div>
     </div>
     <p class="my_go">我的益行</p>
@@ -37,8 +37,8 @@
         <li>审核中</li>
         <li v-text="state_img"></li>
       </ul>
-      <p class="warn_false" v-text="warn_false=imgTitleInfo.content"></p>
-      <button class="edit-img" @click="changImg">修改照片</button>
+      <p class="warn_false" v-text="warn_false=imgTitleInfo.content" v-if=" change_show"></p>
+      <button class="edit-img" @click="changImg" v-if="change_show">修改照片</button>
     </div>
   </div>
 </template>
@@ -55,6 +55,7 @@
     props: ["id_num"],
     data(){
       return {
+        change_show:true,
         info_show:false,
         show_world: false,
         show_step: false,
@@ -83,9 +84,9 @@
                 now_this.step_src= require("../../../assets/images/success.png")
                 now_this.state_img="审核不通过"
                 now_this.show_step = true
-
+                now_this.$emit("again")
               } else if (res.data.list.is_pass == 3) {
-
+                now_this.change_show=false
                 now_this.show_step = true
                 now_this.warn_false = ""
 

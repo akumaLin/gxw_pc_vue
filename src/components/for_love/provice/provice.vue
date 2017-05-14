@@ -9,8 +9,10 @@
         <div class="provice-list">
             <dl class="provice-item clearfix" v-for="(item, index) in listImgTitle"  @click="goSelf(item.address)">
                 <dt>
-                    <img  v-if="index <= 2" :src='src[index]' alt="">
-                    <p v-if="index > 2" >{{ (index + 1) | getdlb}}</p>
+                  <img  v-if="item.ranking==1" :src='src[0]'  alt="">
+                  <img  v-if="item.ranking==2" :src='src[1]'  alt="">
+                  <img  v-if="item.ranking==3" :src='src[2]'  alt="">
+              <p v-if="item.ranking > 3" > {{item.ranking}}</p>
                 </dt>
                 <dd class="provice-name" v-text="item.address">
 
