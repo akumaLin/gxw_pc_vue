@@ -26,7 +26,7 @@
                     <p class="person" v-text="item.likes"></p>
                 </dd>
                 <dd class="provice-donate">
-                    <p>集赞总数:</p>
+                    <p>总捐献:</p>
                     <p class="person" ><span v-text="item.money" class="provice_right_png"></span> <img src="../../../assets/images/right.png" alt="" ></p>
 
                 </dd>
@@ -52,7 +52,7 @@ export default {
             pre_color:true,
             total:"",
             page:1,
-            pageSize:13,
+            pageSize:10,
 
             src: [require('../../../assets/images/first.png'),require('../../../assets/images/second.png'),require('../../../assets/images/third.png')]
         }

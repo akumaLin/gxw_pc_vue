@@ -138,7 +138,7 @@
              }
 
            }else {
-             top.location.href="http://192.168.1.10/gxw520/user.php?back_act=http://192.168.1.10/gxw520/subject.php?act=love&common_type=1"
+             top.location.href="http://www.gxw520.cc/user.php?back_act=http://www.gxw520.cc/subject.php?act=love&common_type=1"
            }
 
 

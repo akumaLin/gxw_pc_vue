@@ -1,10 +1,10 @@
 <template>
   <div class="wrap-solorank">
-    <div class="honor":style="{background: 'url(' + honor_bg + ') no-repeat',backgroundSize:'100% 100%'}">福建省用户爱心排行</div>
+    <div class="honor":style="{background: 'url(' + honor_bg + ') no-repeat',backgroundSize:'100% 100%'}">{{now_provice}}用户爱心排行</div>
     <div class="solorank-title clearfix">
       <div class="input-box">
         <img src="../../assets/images/search.png" alt="" class="search">
-        <input type="text" placeholder="输入用户编码" v-model="user_code">
+        <input type="text" placeholder="输入用户编码" v-model="user_code" @keyup.enter="search">
         <img src="../../assets/images/close.png" alt="" class="close" @click="clearValue">
         <button class="search_btn" @click="search">搜索</button>
       </div>
@@ -72,13 +72,14 @@
         pre_color:true,
         detail_img:false,
         next_color:false,
+        now_provice:'',
         total:"",
         detail_title:"",
         user_code:"",
         null_people:false,
         page:"1",
         id_num:"",
-        pageSize:"13",
+        pageSize:"10",
         issearch:false,
         honor_bg:require("../../assets/images/honor.png"),
         listImgTitle:[],
@@ -99,7 +100,9 @@
         url: 'http://192.168.1.25/gxw_mobile3/Shop/Loves/listImgTitleAddRank?query={"user_id":' + '"'+ this.id_num +'"'+ ',"address":'+'"'+ this.$route.query.address+'"' +',"page":'+'"'+ this.page+'"'+',"pageSize":'+'"'+this.pageSize+'"'+"}",
       }).then(function (res) {
         now_this.listImgTitle=res.data.list
+        now_this.now_provice=res.data.list[0].address
         now_this.total=res.data.totalpage
+
         if(res.data.totalpage==1){
           now_this.next_color=true
         }

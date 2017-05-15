@@ -72,8 +72,9 @@
         src: [require('../../../assets/images/01.png'), require('../../../assets/images/02.png'), require('../../../assets/images/03.png'), require('../../../assets/images/04.png')]
       }
     },
-    props: ["id_num","isnt_pass"],
-    created(){
+  /*  props: ["id_num","isnt_pass"],*/
+    props: ["id_num"],
+ /*   created(){
                 if(this.isnt_pass!=''){
                   this.province=this.isnt_pass.address
                   console.log(this.province)
@@ -89,7 +90,7 @@
                 }
 
 
-    },
+    },*/
 
 
     methods: {

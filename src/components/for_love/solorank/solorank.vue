@@ -3,7 +3,7 @@
     <div class="solorank-title clearfix">
       <div class="input-box">
         <img src="../../../assets/images/search.png" alt="" class="search">
-        <input type="text" placeholder="输入用户编码" v-model="user_code">
+        <input type="text" placeholder="输入用户编码" v-model="user_code" @keyup.enter="search">
         <img src="../../../assets/images/close.png" alt="" class="close" @click="clearValue">
         <button class="search_btn" @click="search">搜索</button>
       </div>
@@ -72,7 +72,7 @@
         null_people: false,
         page: "1",
         id_num: "",
-        pageSize: "13",
+        pageSize: "10",
         issearch: false,
         listImgTitle: [],
         src: [require('../../../assets/images/first.png'), require('../../../assets/images/second.png'), require('../../../assets/images/third.png')],
@@ -192,7 +192,7 @@
         } else {
           Message({
             message: '请输入用户编码',
-            type: 'warning'
+            type: 'warning',
           });
         }
       },
