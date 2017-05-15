@@ -1,11 +1,12 @@
 <template>
   <div id="for_love">
+    <div v-html=""></div>
     <love_header @showupload="show=true" :imgCount="imgCount" :id_num="id_num" :go_now="go_now"></love_header>
     <uploadhead v-if="show" @myhead_not="show_myhead_modul=false" :not_pass="not_pass_img"  @closeupload="isShow" :id_num="id_num" @myhead="myheads" @closexxx="show=false" ></uploadhead>
     <!--<uploadhead v-if="show" @myhead_not="show_myhead_modul=false" :not_pass="not_pass_img" :isnt_pass="isnt_pass" @closeupload="isShow" :id_num="id_num" @myhead="myheads" @closexxx="show=false" ></uploadhead>-->
     <my_head @showMyhead="head_Show" :step3="step3" @img_change="my_headchange" :id_num="id_num" v-if="show_myhead_modul"></my_head>
     <sort_num></sort_num>
-    <img src="../../assets/images/520adbanner.png" alt="" class="last_img">
+    <img src="../../assets/images/520adbanner.png" alt="" class="last_img scale_img">
   </div>
 
 </template>
@@ -111,6 +112,7 @@
   width: 1190px;
   height: auto;
   margin: auto;
+
 }
 
 </style>

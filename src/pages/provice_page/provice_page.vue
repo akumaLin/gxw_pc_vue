@@ -9,7 +9,7 @@
         <button class="search_btn" @click="search">搜索</button>
       </div>
       <div class="pre-next">
-        <span @click="previous" class="next" :class="{next1:pre_color}"><&nbsp;上一页</span>
+        <span @click="previous" class="next_lyx" :class="{next1:pre_color}"><&nbsp;上一页</span>
         <span class="next" @click="next" :class="{next1:next_color}">下一页&nbsp;></span>
       </div>
     </div>
@@ -51,8 +51,8 @@
     </div>
     <div v-if="null_people">暂无数据</div>
     <div class="pre-next bot_btn">
-      <span @click="previous" class="next" :class="{next1:pre_color}"><&nbsp;上一页</span>
-      <span class="next" @click="next" :class="{next1:next_color}">下一页&nbsp;></span>
+      <span @click="previous" class="next_lyx" :class="{next1:pre_color}"><&nbsp;上一页</span>
+      <span class="next_lyx" @click="next" :class="{next1:next_color}">下一页&nbsp;></span>
     </div>
     <div  class="detail_img" v-if="detail_img">
       <div class="cover"></div>
@@ -97,7 +97,7 @@
       this.id_num=this.getCookie("user_id")
       axios({
         method: 'get',
-        url: 'http://192.168.1.25/gxw_mobile3/Shop/Loves/listImgTitleAddRank?query={"user_id":' + '"'+ this.id_num +'"'+ ',"address":'+'"'+ this.$route.query.address+'"' +',"page":'+'"'+ this.page+'"'+',"pageSize":'+'"'+this.pageSize+'"'+"}",
+        url: encodeURI('http://192.168.1.25/gxw_mobile3/Shop/Loves/listImgTitleAddRank?query={"user_id":' + '"1101"'+',"address":'+'"'+ this.$route.query.address+'"' +',"page":'+'"'+ this.page+'"'+',"pageSize":'+'"'+this.pageSize+'"'+"}"),
       }).then(function (res) {
         now_this.listImgTitle=res.data.list
         now_this.now_provice=res.data.list[0].address

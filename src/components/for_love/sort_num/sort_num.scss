@@ -1,32 +1,32 @@
 #sort_num{
-  padding-bottom: 2vh;
+
 }
 .honor{
-  width: 539px;
-  height: 98px;
+  width: 339px;
+  height: 68px;
   margin: auto;
-  line-height: 75px;
+  line-height: 55px;
   text-align: center;
   font-family:'.PingFangSC-Medium' ;
-  font-size: 36px;
+  font-size: 24px;
   color: #FFFFFF;
-  letter-spacing: -3.35px;
   margin-top: 51px;
 }
 .sort_panel{
   margin: auto;
   width: 455px;
-  height: 56.4px;
+  height: 40.4px;
   overflow: hidden;
   margin-top: 41px;
   margin-bottom: 40px;
   border: 1px solid #D73333;
+  cursor: pointer;
   li{
     display: inline-block;
-    height: 56.4px;
+    height: 40.4px;
     width: 226px;
     text-align: center;
-    line-height: 56.4px;
+    line-height: 40.4px;
     border-radius: 3px;
     margin: 0px;
     float: left;
@@ -42,4 +42,5 @@
   background: #D83333;
   border-radius: 0 2px 2px 2px;
   display: block;
+  cursor: pointer;
 }

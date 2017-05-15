@@ -10,12 +10,12 @@
 }
 .wrap-provice{
     box-sizing: border-box;
-    width:1184px;
+    width:834px;
     margin:0 auto;
     .provice-title{
-        height:56px;
+      height: 36px;
         .provice-pre-next{
-            font-size: 18px;
+            font-size: 14px;
             color: #646464;
             letter-spacing: 0;
             float:right;
@@ -28,7 +28,7 @@
                 height:56px;
                 display: inline-block;
             }
-            .next{
+            .next_lyx{
                 color: #003434;
             }
           .next1{
@@ -37,13 +37,13 @@
         }
     }
     .provice-list{
-        width:1184px;
+        width:100%;
         margin:0 auto;
         margin-top:14px;
         .provice-item{
             margin-bottom:16px;
-            height:107px;
-            width:1184px;
+            height:70px;
+            width:100%;
             border: 1px solid #CCCCCC;
             border-radius: 4px;
             color: #646464;
@@ -52,9 +52,9 @@
             }
             dt{
                 margin-left:22.6px;
-                width:56.6px;
-                height:53.6px;
-                margin-top:25px;
+                width: 30.6px;
+                height: 30.6px;
+                margin-top:23px;
                 position:relative;
                 img{
                     width:100%;
@@ -66,89 +66,118 @@
                     font-size: 18px;
                     color: #646464;
                     letter-spacing: 0;
-                    top:25px;
-                    left:20px;
+                    top:8px;
+                    left:15px;
+                  text-align: center;
                 }
             }
             .provice-name{
-                margin-left:52px;
-                margin-top:49px;
-                font-size: 18px;
+                margin-left:32px;
+                margin-top:33px;
+                font-size: 14px;
                 color: #D73333;
                 width:76px;
             }
             .provice-join{
-                margin-left:55px;
+                margin-left:25px;
                 height:25px;
                 line-height:25px;
-                width:225px;
-                margin-top:49px;
-                font-size: 18px;
+                width:185px;
+                margin-top:23px;
+                font-size: 14px;
                 color: #646464;
                 letter-spacing: 0;
-                background: url('../../../assets/images/person.png') no-repeat center center ;
+             /*   background: url('../../../assets/images/person.png') no-repeat center center ;*/
                 p{
                     display:inline-block;
-                    width:100px;
+                    width:60px;
                     height:25px;
                     line-height:25px;
                 }
+              img{
+                vertical-align: middle;
+                width: 15px;
+                height:18px;
+                float: none;
+              }
                 .person{
                     padding-top:1px;
-                    margin-left:13px;
                     padding-left: 7px;
+                  width:90px;
                 }
             }
             .provice-zan{
-                margin-left:55px;
                 height:25px;
                 line-height:25px;
-                width:270px;
-                margin-top:49px;
-                font-size: 18px;
+                width:210px;
+                margin-top:23px;
+                font-size: 14px;
                 color: #646464;
                 letter-spacing: 0;
-                background: url('../../../assets/images/xin.png') no-repeat center center ;
+
                 p{
                     display:inline-block;
-                    width:110px;
+                    width:70px;
                     height:25px;
                     line-height:25px;
                     text-align:right;
-                    padding-right:5px;
+
                 }
+              img{
+                vertical-align: middle;
+                width: 15px;
+                height:18px;
+                float: none;
+              }
                 .person{
                     padding-top:1px;
-                    padding-left:35px;
+                    padding-left:-35px!important;
                     text-align:left;
+                /*  background: url('../../../assets/images/xin.png') no-repeat center center ;*/
                 }
             }
             .provice-donate{
-                margin-left:55px;
                 height:25px;
                 line-height:25px;
-                width:270px;
-                margin-top:49px;
-                font-size: 18px;
+                width:230px;
+                margin-top:20px;
+                font-size: 14px;
                 color: #646464;
                 letter-spacing: 0;
-                background: url('../../../assets/images/money.png') no-repeat center center ;
+              position: relative;
+
                 p{
+               /*   background: url('../../../assets/images/money.png') no-repeat center center ;*/
                     display:inline-block;
-                    width:110px;
+                    width:60px;
                     height:25px;
                     line-height:25px;
-                    text-align:right;
+                    text-align:left;
                     padding-right:5px;
                 }
+              img{
+                vertical-align: middle;
+                width: 15px;
+                height:18px;
+                float: none;
+              }
                 .person{
                     padding-top:1px;
-                    padding-left:35px;
                     text-align:left!important;
+
                   .provice_right_png{
-                    margin-right: 30px;
+                    margin-right: 3px;
                   }
+
                 }
+              .r_img_go{
+               position: absolute;
+                  right: 20px;
+                top:5px;
+                  vertical-align: middle;
+                  width: 15px;
+                  height:18px;
+              }
             }
         }
     }

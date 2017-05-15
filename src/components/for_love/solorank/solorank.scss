@@ -17,95 +17,78 @@
 
 .wrap-solorank {
   box-sizing: border-box;
-  width: 1184px;
+  width:834px;
   margin: 0 auto;
   .solorank-title {
-    height: 56px;
+    height: 36px;
     .input-box {
-      width: 604px;
+      width:440px!important;
       float: left;
-      height: 56px;
+      height: 32px!important;
       position: relative;
       box-sizing: content-box;
       .search {
         position: absolute;
         top: 0;
         left: 0;
-        width: 40px;
-        height: 40px;
-        margin-top: 8px;
+        width:  20px!important;
+        height: 20px!important;
+        margin-top: 11px!important;
         margin-left: 8px;
       }
       .close {
         position: absolute;
-        right: 130px;
-        top: 15.5px;
+        right: 110px!important;
+        top: 10px!important;
         width: 25px;
         height: 25px;
         cursor:pointer
       }
       input {
-        height: 56px;
+        height: 40px!important;
         outline: none;
         float: left;
         border: 0;
         padding: 0;
-        width: 410px;
-        padding-left: 80px;
+        width: 310px!important;
+        padding-left: 30px!important;
         border: 1px solid #8E8E8E;
         border-right: 1px solid #8E8E8E;
         border-radius: 4px;
         // font-family: .PingFangSC-Regular;
-        font-size: 18px;
+        font-size: 12px;
         color: #646464;
         letter-spacing: 0;
       }
       .search_btn{
-        height: 60px;
+        height: 42px!important;
         width: 100px;
         border-radius:0 4px 4px 0;
         border: 1px solid #8E8E8E!important;
         background: #D83333;
         float: right;
         border: none;
-        font-size: 24px;
+        font-size: 16px;
         margin-left: -3px;
         margin-top: -0.5px;
         color: white!important;
         cursor:pointer
       }
     }
-    .pre-next {
-      font-size: 18px;
-      color: #646464;
-      letter-spacing: 0;
-      float: right;
-      span {
-        cursor: pointer;
-        height: 56px;
-        line-height: 56px;
-        text-align: left;
-        width: 98px;
-        height: 56px;
-        display: inline-block;
-      }
-      .next {
-        color: #003434;
-      }
-      .next1{
-        color: grey!important;
-      }
-    }
+
   }
   .solorank-list {
-    width: 1184px;
+    width: 100%;
     margin: 0 auto;
     margin-top: 14px;
+    .ranking{
+      margin-top: 13px;
+    }
     .solorank-item {
       margin-bottom: 16px;
-      height: 107px;
-      line-height: 107px;
-      width: 1184px;
+      height:70px;
+      line-height: 70px;
+      width: 100%;
       border: 1px solid #CCCCCC;
       border-radius: 4px;
       color: #646464;
@@ -114,9 +97,9 @@
       }
       dt {
         margin-left: 22.6px;
-        width: 56.6px;
-        height: 53.6px;
-        margin-top: 25px;
+        width: 30.6px;
+        height: 30.6px;
+        margin-top: 12px;
         position: relative;
         img {
           width: 100%;
@@ -133,8 +116,8 @@
         }
       }
       .header-img {
-        width: 78px;
-        height: 74px;
+        width: 48px;
+        height: 44px;
         margin-top: 14px;
         border-radius: 50%;
         margin-left: 50px;
@@ -144,10 +127,10 @@
         }
       }
       .solorank-name, .solorank-num {
-        width: 190px;
-        height: 107px;
+        width: 110px;
+        height: 47px;
         margin-left: 33px;
-        font-size: 18px;
+        font-size: 14px;
         color: #646464;
         letter-spacing: 0;
       }
@@ -155,8 +138,8 @@
         margin-left: 30px;
       }
       .solorank-work {
-        width: 95px;
-        height: 78px;
+        width: 48px;
+        height: 44px;
         border-radius: 4px;
         margin-top: 14px;
         margin-left: 44px;
@@ -167,17 +150,19 @@
         }
       }
       .solorank-money {
-        width: 147px;
-        height: 107px;
+        width: 117px;
+        height: 47px;
         margin-left: 57px;
-        font-size: 18px;
+        font-size: 14px;
         color: #646464;
         letter-spacing: 0;
       }
       .solorank-xin {
-        margin-top: 5px;
-        margin-left: 15px;
-        width: 60px;
+        overflow: hidden;
+        margin-top: -10px;
+        margin-left: -15px;
+        margin-right: 15px;
+        width: 50px;
         height: 56px;
         line-height: 56px;
         cursor: pointer;
@@ -205,23 +190,8 @@
 }
 
 .star_1 {
-  height: 45.3px;
-  width: 47.6px;
-
-  .VueStar__ground {
-    height: 45.3px;
-    width: 47.6px;
-  }
-  .VueStar__icon {
-    height: 45.3px;
-    width: 47.6px;
-
-  }
-  .VueStar__decoration {
-    line-height: 100%;
-
-  }
-
+  height: 35.3px;
+  width: 37.6px;
 }
 .detail_img{
   .cover{
@@ -260,8 +230,29 @@
   }
   .close_detail_img{
     position: fixed;
-    top:-80%;
-    right: -70%;
+    top:30%;
+    right: 0;
   }
 }
 
+.pre-next {
+  font-size: 14px;
+  color: #646464;
+  letter-spacing: 0;
+  float: right;
+  span {
+    cursor: pointer;
+    height: 56px;
+    line-height: 56px;
+    text-align: left;
+    width: 98px;
+    height: 56px;
+    display: inline-block;
+  }
+  .next_lyx {
+    color: #003434;
+  }
+  .next1{
+    color: grey!important;
+  }
+}

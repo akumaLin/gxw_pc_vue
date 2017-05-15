@@ -2,8 +2,8 @@
     <div class="wrap-provice">
         <div class="provice-title clearfix">
             <div class="provice-pre-next">
-                <span @click="previous" class="next" :class="{next1:pre_color}"><&nbsp;上一页</span>
-                <span class="next " @click="next" :class="{next1:next_color}" >下一页&nbsp;></span>
+                <span @click="previous" class="next_lyx" :class="{next1:pre_color}"><&nbsp;上一页</span>
+                <span class="next_lyx" @click="next" :class="{next1:next_color}" >下一页&nbsp;></span>
             </div>
         </div>
         <div class="provice-list">
@@ -19,23 +19,26 @@
                 </dd>
                 <dd class="provice-join">
                     <p>参与人数:</p>
+                     <img src="../../../assets/images/person.png" alt="">
                     <p class="person" v-text="item.num"></p>
                 </dd>
                 <dd class="provice-zan">
                     <p>集赞总数:</p>
-                    <p class="person" v-text="item.likes"></p>
+                  <img src="../../../assets/images/xin.png" alt="">
+                  <span v-text="item.likes"></span>
                 </dd>
                 <dd class="provice-donate">
                     <p>总捐献:</p>
-                    <p class="person" ><span v-text="item.money" class="provice_right_png"></span> <img src="../../../assets/images/right.png" alt="" ></p>
-
+                  <img src="../../../assets/images/money.png" alt="">
+                    <p class="person" ><span v-text="item.money" class="provice_right_png"></span> </p>
+                  <img src="../../../assets/images/right.png" alt=""  class="r_img_go">
                 </dd>
             </dl>
         </div>
         <div class="provice-title clearfix">
             <div class="provice-pre-next">
-              <span @click="previous" class="next" :class="{next1:pre_color}"><&nbsp;上一页</span>
-              <span class="next " @click="next" :class="{next1:next_color}" >下一页&nbsp;></span>
+              <span @click="previous" class="next_lyx" :class="{next1:pre_color}"><&nbsp;上一页</span>
+              <span class="next_lyx" @click="next" :class="{next1:next_color}" >下一页&nbsp;></span>
             </div>
         </div>
       <p class="provice_info">说明：共享网本次公益活动款项将捐赠给集赞省份排行榜前三个地区。活动数据根据参与用户提交统计。</p>
@@ -118,7 +121,16 @@ export default {
         }
       },
     goSelf(val){
-      this.$router.push({ path:'/provice_page', query: { address:val }})
+      let nowThis = this
+      let my_href = window.location.href
+      let url_index = my_href.lastIndexOf("#")
+      if (url_index > -1) {
+        var href = my_href.substring(0,url_index +1)
+
+      }
+        var a= href+'/provice_page'+'?address='+val
+   /*   this.$router.push({ path:'/provice_page', query: { address:val }})*/
+       top.location.href= href+'/provice_page'+'?address='+val
     }
   }
 }

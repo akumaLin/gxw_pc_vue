@@ -18,24 +18,26 @@
   margin-top: 55px;
 }
 .my_info{
-  width: 100%;
+  width:834px;
   /*height: 629px;*/
+
   padding-bottom: 50px;
   background: #FFFFFF;
   box-shadow: 0 4px 4px 0 rgba(146,137,137,0.50);
   margin-bottom: 45px;
   position: relative;
+  margin: auto;
   z-index: 1;
   .my_info_bg{
-    height: 216px;
+    height: 170px;
     overflow: hidden;
   }
 }
 .header_png{
-  height: 108px;
-  width: 108px;
-  margin-left: 187px;
-  margin-top: 53px;
+  height: 80px;
+  width: 80px;
+  margin-left: 100px;
+  margin-top: 33px;
   border-radius: 50%;
   vertical-align:middle;
   display: inline-block;
@@ -47,7 +49,7 @@
   margin-left: 20px;
   p:first-child{
     font-family: '.PingFangSC-Semibold';
-    font-size: 36px;
+    font-size: 24px;
     color: #323232;
     letter-spacing: -2.6px;
     margin-bottom: 10px;
@@ -57,7 +59,7 @@
   }
   p:last-child span{
     font-family: '.PingFangSC-Regular';
-    font-size:20px;
+    font-size:14px;
     color: #4E4E4E;
     letter-spacing: 0;
     margin: 25px;
@@ -78,29 +80,30 @@
   margin-top: 50px;
 }
 .my_go{
-  margin-left: 162px;
+  margin-left: 100px;
   margin-top: 15px;
   font-family: '.PingFangSC-Regular';
-  font-size: 20px;
+  font-size: 18px;
   color: #323232;
   letter-spacing: -2.17px;
 }
 .my_go_info{
-  margin-left: 205px;
+  margin-left: 130px;
   position: relative;
   p{
     font-family:'.PingFangSC-Regular' ;
-    font-size: 18px;
+    font-size: 14px;
     color: #555555;
     letter-spacing: -1.95px;
     margin-top: 15px;
     margin-bottom: 15px;
     position: relative;
   }
-  .img{
-    width: 382px;
-    height: 306.5px;
+  .img_lyx{
+    width: 300px;
+    height: 200.5px;
     margin-bottom: 15px;
+    float: none;
   }
   .position{
     position: absolute;
@@ -112,41 +115,47 @@
   }
   .heart{
     position: absolute;
-    right: 370px;
+    cursor: pointer;
+    right: 210px;
     bottom:-40px;
   }
   .delete_my_info{
     margin-left: 20px;
+    cursor:pointer;
   }
   .star_heart{
-    margin-left: 209px;
+    margin-left: 190px;
+    cursor: pointer;
     color: #E54141;
     .heart_num{
       margin-left: 20px;
+      cursor: pointer;
     }
   }
   p:last-child{
     font-family: '.PingFangSC-Regular';
-    font-size: 18px;
+    font-size: 14px;
     color: #555555;
     letter-spacing: 0;
   }
 }
 .step_img{
-  width:753px ;
-  height:63px;
-  margin-left: 210px;
+  display: block;
+  float: none;
+  width:60%;
+  margin: auto;
+  height:30px;
   margin-top: 49px;
 }
   .step_text{
-    width: 773px;
-    margin-left: 200px;
+    width: 60%;
+    margin-left: 165px;
     margin-top: 33px;
     li{
       float: left;
       width: 33.333%;
       font-family: '.PingFangSC-Regular';
-      font-size: 18px;
+      font-size: 14px;
       color: #757575;
       letter-spacing: -1.67px;
       &:nth-child(2){
@@ -168,15 +177,17 @@
   text-align: center;
 }
 .edit-img{
-  width: 177.2px;
-  height: 40.5px;
+  width: 140.2px;
+  height: 30.5px;
   background: #E9CE56;
   border-radius: 100px;
   border: none;
   font-family: PingFangSC-Regular;
-  font-size: 18px;
+  font-size: 14px;
   color: #FFFFFF;
   letter-spacing: 0.64px;
   margin-top: 3px;
-  margin-left: 522px;
+  display: block;
+  margin: auto;
+
 }

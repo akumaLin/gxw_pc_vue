@@ -120,7 +120,7 @@
             axios({
               method: 'post',
               url: 'http://192.168.1.25/gxw_mobile3/Shop/Loves/addImgTitle',
-              data:'query={"user_id":' + '"'+ this.id_num +'"'+ ',"image":'+'"'+ this.outUrl+'"'+',"address":'+'"'+this.provinces+'"'+',"title":'+'"'+this.text+'"'+ "}",
+              data:'query={"user_id":' + '"'+ this.id_num +'"'+ ',"image":'+'"'+ this.outUrl+'"'+',"address":'+'"'+ encodeURI(this.provinces)+'"'+',"title":'+'"'+this.text+'"'+ "}",
             }).then(function (res) {
                   now_this.$emit("not_pass")
                   now_this.$emit("myhead_not")

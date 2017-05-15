@@ -8,8 +8,8 @@
         <button class="search_btn" @click="search">搜索</button>
       </div>
       <div class="pre-next">
-        <span @click="previous" class="next" :class="{next1:pre_color}"><&nbsp;上一页</span>
-        <span class="next" @click="next" :class="{next1:next_color}">下一页&nbsp;></span>
+        <span @click="previous" class="next_lyx" :class="{next1:pre_color}"><&nbsp;上一页</span>
+        <span class="next_lyx" @click="next" :class="{next1:next_color}">下一页&nbsp;></span>
       </div>
     </div>
     <div class="solorank-list">
@@ -18,7 +18,7 @@
           <img v-if="item.ranking==1" :src='src[0]' alt="">
           <img v-if="item.ranking==2" :src='src[1]' alt="">
           <img v-if="item.ranking==3" :src='src[2]' alt="">
-        <p v-if="item.ranking > 3"> {{item.ranking}}</p>
+        <p v-if="item.ranking > 3" class="ranking"> {{item.ranking}}</p>
         </dt>
         <dd class="header-img">
           <img :src="item.user_img" alt="">

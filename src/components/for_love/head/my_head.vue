@@ -13,7 +13,7 @@
     <p class="my_go">我的益行</p>
     <div class="my_go_info" v-if="show_world">
       <p v-text="imgTitleInfo.title">与友骑行，在路上，欣赏沿途风景。</p>
-      <img :src="imgTitleInfo.imageurl" alt="" class="img">
+      <img :src="imgTitleInfo.imageurl" alt="" class="img_lyx">
       <p>
         <img src="../../../assets/images/position.png" alt="" class="position">
         <span class="provice" v-text="imgTitleInfo.address">福建省</span>
