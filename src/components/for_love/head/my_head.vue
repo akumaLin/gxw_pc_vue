@@ -71,7 +71,7 @@
     created(){
       if (this.id_num != null) {
         var now_this = this
-        axios.get('http://192.168.1.25/gxw_mobile3/Shop/Loves/imgTitleInfo?query={"user_id":' + this.id_num + '}')
+        axios.get(this.hostUrl+'/Shop/Loves/imgTitleInfo?query={"user_id":' + this.id_num + '}')
           .then(function (res) {
             if (res.data.result == false) {
               now_this.$emit("showMyhead")
@@ -111,11 +111,11 @@
                var now_this=this
                axios({
                  method: 'post',
-                 url: 'http://192.168.1.25/gxw_mobile3/Shop/Loves/likesImgTitle',
+                 url: this.hostUrl+'/Shop/Loves/likesImgTitle',
                  data:'query={"user_id":' + '"'+ this.id_num +'"'+ ',"img_id":'+'"'+ id+'"'+ "}",
                }).then(function (res) {
                  if(res.data.result==true){
-                   axios.get('http://192.168.1.25/gxw_mobile3/Shop/Loves/imgTitleInfo?query={"user_id":' +now_this.id_num + '}')
+                   axios.get(this.hostUrl+'/Shop/Loves/imgTitleInfo?query={"user_id":' +now_this.id_num + '}')
                      .then(function (respon){
                        now_this.imgTitleInfo =respon.data.list
                      })
@@ -138,7 +138,7 @@
              }
 
            }else {
-             top.location.href="http://www.gxw520.cc/user.php?back_act=http://www.gxw520.cc/subject.php?act=love&common_type=1"
+             top.location.href=this.gxwloginUrl+"/user.php?back_act="+this.gxwloginUrl+"subject.php?act=love/for_love/self&common_type=1"
            }
 
 
@@ -153,7 +153,7 @@
           var now_this=this
         axios({
           method: 'post',
-          url: 'http://192.168.1.25/gxw_mobile3/Shop/Loves/delImgTitle',
+          url: this.hostUrl+'/Shop/Loves/delImgTitle',
           data:'query={"user_id":' + '"'+ this.id_num +'"'+ ',"img_id":'+'"'+ val+'"'+ "}",
         }).then(function (res) {
                  if(res.data.result==true){

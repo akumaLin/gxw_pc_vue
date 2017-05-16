@@ -10,7 +10,7 @@
       </div>
       <div class="pre-next">
         <span @click="previous" class="next_lyx" :class="{next1:pre_color}"><&nbsp;上一页</span>
-        <span class="next" @click="next" :class="{next1:next_color}">下一页&nbsp;></span>
+        <span class="next_lyx" @click="next" :class="{next1:next_color}">下一页&nbsp;></span>
       </div>
     </div>
     <div class="solorank-list" >
@@ -49,7 +49,7 @@
         </dd>
       </dl>
     </div>
-    <div v-if="null_people">暂无数据</div>
+   <!-- <div v-if="null_people">暂无数据</div>-->
     <div class="pre-next bot_btn">
       <span @click="previous" class="next_lyx" :class="{next1:pre_color}"><&nbsp;上一页</span>
       <span class="next_lyx" @click="next" :class="{next1:next_color}">下一页&nbsp;></span>
@@ -92,12 +92,10 @@
     },
     created(){
       var now_this=this
-
-      console.log(this.$route.query.address)
       this.id_num=this.getCookie("user_id")
       axios({
         method: 'get',
-        url: encodeURI('http://192.168.1.25/gxw_mobile3/Shop/Loves/listImgTitleAddRank?query={"user_id":' + '"1101"'+',"address":'+'"'+ this.$route.query.address+'"' +',"page":'+'"'+ this.page+'"'+',"pageSize":'+'"'+this.pageSize+'"'+"}"),
+        url: encodeURI(this.hostUrl+'/Shop/Loves/listImgTitleAddRank?query={"user_id":' + '"1101"'+',"address":'+'"'+ this.$route.query.address+'"' +',"page":'+'"'+ this.page+'"'+',"pageSize":'+'"'+this.pageSize+'"'+"}"),
       }).then(function (res) {
         now_this.listImgTitle=res.data.list
         now_this.now_provice=res.data.list[0].address
@@ -108,9 +106,12 @@
         }
       })
 
-    }
-
-    ,
+    },
+    mounted(){
+      const nowThis = this
+      const obj = nowThis.$el
+      obj.parentNode.scrollTop =0;
+    },
     methods:{
       getCookie:function(user_id){
         if (document.cookie.length>0)
@@ -130,8 +131,11 @@
       clearValue(){
         if(this.issearch==true){
           var now_this=this
-          axios.get('http://192.168.1.25/gxw_mobile3/Shop/Loves/listImgTitleAddRank?query={"user_id":' + '"'+ this.id_num +'"'+ ',"address":'+'"'+ this.$route.query.address+'"' +',"page":'+'"'+ this.page+'"'+',"pageSize":'+'"'+this.pageSize+'"'+"}")
-            .then(function (res) {
+
+          axios({
+            method: 'get',
+            url: encodeURI(this.hostUrl+'/Shop/Loves/listImgTitleAddRank?query={"user_id":' + '"'+ this.id_num +'"'+ ',"address":'+'"'+ this.$route.query.address+'"' +',"page":'+'"'+ this.page+'"'+',"pageSize":'+'"'+this.pageSize+'"'+"}"),
+          }).then(function (res) {
               now_this.listImgTitle=res.data.list
               now_this.null_people=false
               now_this.issearch=false
@@ -152,11 +156,11 @@
               var now_this=this
               axios({
                 method: 'post',
-                url: 'http://192.168.1.25/gxw_mobile3/Shop/Loves/likesImgTitle',
+                url: this.hostUrl+'/Shop/Loves/likesImgTitle',
                 data:'query={"user_id":' + '"'+ this.id_num +'"'+ ',"img_id":'+'"'+ id+'"'+ "}",
               }).then(function (res) {
                 if(res.data.result==true){
-                  axios.get('http://192.168.1.25/gxw_mobile3/Shop/Loves/imgTitleInfo?query={"user_id":' +now_this.id_num + '}')
+                  axios.get(this.hostUrl+'/Shop/Loves/imgTitleInfo?query={"user_id":' +now_this.id_num + '}')
                     .then(function (respond){
                       now_this.listImgTitle =respond.data.list
                     })
@@ -180,7 +184,7 @@
 
 
           }else {
-            top.location.href="http://192.168.1.10/gxw520/user.php?back_act=http://192.168.1.10/gxw520/subject.php?act=love&common_type=1"
+            top.location.href=this.gxwloginUrl+"/user.php?back_act="+this.gxwloginUrl+"subject.php?act=love/for_love/self&common_type=1"
           }
 
 
@@ -193,8 +197,10 @@
       search(){
         var now_this=this
         if(this.user_code!=""){
-          axios.get('http://192.168.1.25/gxw_mobile3/Shop/Loves/listImgTitleAddRank?query={"user_id":'+'"'+ this.id_num+'"' + ',"search":'+'"'+ this.user_code+'"'+ ',"address":'+'"'+ this.$route.query.address +'"'+ '}')
-            .then(function (res) {
+          axios({
+            method: 'get',
+            url: encodeURI(this.hostUrl+'/Shop/Loves/listImgTitleAddRank?query={"user_id":'+'"'+ this.id_num+'"' + ',"search":'+'"'+ this.user_code+'"'+ ',"address":'+'"'+ this.$route.query.address +'"'+ '}'),
+          }).then(function (res) {
               if(res.data.result==true){
                 now_this.listImgTitle=res.data.list
                 now_this.issearch=true
@@ -225,7 +231,7 @@
           }else {
             axios({
               method: 'get',
-              url: 'http://192.168.1.25/gxw_mobile3/Shop/Loves/listImgTitleAddRank?query={"user_id":' + '"'+ this.id_num +'"'+ ',"address":'+'"'+ this.$route.query.address+'"' + ',"page":'+'"'+(parseInt(this.page)-1)+'"'+',"pageSize":'+'"'+this.pageSize+'"'+"}",
+              url: encodeURI(this.hostUrl+'/Shop/Loves/listImgTitleAddRank?query={"user_id":' + '"'+ this.id_num +'"'+ ',"address":'+'"'+ this.$route.query.address+'"' + ',"page":'+'"'+(parseInt(this.page)-1)+'"'+',"pageSize":'+'"'+this.pageSize+'"'+"}"),
             }).then(function (res) {
               now_this.listImgTitle=res.data.list
               now_this.page=(parseInt(now_this.page)-1)
@@ -248,7 +254,7 @@
           } else {
             axios({
               method: 'get',
-              url: 'http://192.168.1.25/gxw_mobile3/Shop/Loves/listImgTitleAddRank?query={"user_id":' + '"' + this.id_num+'"'+ ',"address":'+'"'+ this.$route.query.address+'"' + ',"page":' + '"' + (parseInt(this.page) + 1) + '"' + ',"pageSize":' + '"' + this.pageSize + '"' + "}",
+              url: encodeURI(this.hostUrl+'/Shop/Loves/listImgTitleAddRank?query={"user_id":' + '"' + this.id_num+'"'+ ',"address":'+'"'+ this.$route.query.address+'"' + ',"page":' + '"' + (parseInt(this.page) + 1) + '"' + ',"pageSize":' + '"' + this.pageSize + '"' + "}"),
             }).then(function (res) {
               now_this.listImgTitle = res.data.list
               now_this.page = (parseInt(now_this.page) + 1)
@@ -274,14 +280,10 @@
 
       }
 
-
-
-
     },
     props: [],
     filters: {
       getdlb (val) {
-        // console.log(val.toString().length)
         if (val.toString().length === 1) {
           return '0' + val
         }

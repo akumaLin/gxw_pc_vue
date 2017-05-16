@@ -47,7 +47,7 @@
 <script>
   import axios from 'axios';
   import { Message } from 'element-ui'
-export default {
+   export default {
     data () {
         return {
           listImgTitle:[],
@@ -65,7 +65,7 @@ export default {
         var now_this=this
       axios({
         method: 'get',
-        url: 'http://192.168.1.25/gxw_mobile3/Shop/Loves/listImgTitle?query={"cate":"2"' + ',"page":'+'"'+ this.page+'"'+',"pageSize":'+'"'+this.pageSize+'"'+"}",
+        url: this.hostUrl+'/Shop/Loves/listImgTitle?query={"cate":"2"' + ',"page":'+'"'+ this.page+'"'+',"pageSize":'+'"'+this.pageSize+'"'+"}",
       }).then(function (res) {
         now_this.listImgTitle=res.data.list
         now_this.total=res.data.totalpage
@@ -77,7 +77,6 @@ export default {
     },
     filters: {
         getdlb (val) {
-            // console.log(val.toString().length)
             if (val.toString().length === 1) {
                 return '0' + val
             }
@@ -91,7 +90,7 @@ export default {
         }else {
           axios({
             method: 'get',
-            url: 'http://192.168.1.25/gxw_mobile3/Shop/Loves/listImgTitle?query={"cate":"2"' + ',"page":'+'"'+ (parseInt(this.page) - 1)+'"'+',"pageSize":'+'"'+this.pageSize+'"'+"}"
+            url: this.hostUrl+'/Shop/Loves/listImgTitle?query={"cate":"2"' + ',"page":'+'"'+ (parseInt(this.page) - 1)+'"'+',"pageSize":'+'"'+this.pageSize+'"'+"}"
           }).then(function (res) {
             now_this.listImgTitle=res.data.list
             now_this.page=(parseInt(now_this.page)-1)
@@ -109,7 +108,7 @@ export default {
         } else {
           axios({
             method: 'get',
-            url: 'http://192.168.1.25/gxw_mobile3/Shop/Loves/listImgTitle?query={"cate":"2"' + ',"page":'+'"'+ (parseInt(this.page) + 1)+'"'+',"pageSize":'+'"'+this.pageSize+'"'+"}"
+            url: this.hostUrl+'/Shop/Loves/listImgTitle?query={"cate":"2"' + ',"page":'+'"'+ (parseInt(this.page) + 1)+'"'+',"pageSize":'+'"'+this.pageSize+'"'+"}"
           }).then(function (res) {
             now_this.listImgTitle = res.data.list
             now_this.page = (parseInt(now_this.page) + 1)

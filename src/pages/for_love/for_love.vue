@@ -31,18 +31,17 @@
         },
       created(){
         this.id_num=this.getCookie("user_id")
-            console.log(this.id_num)
             var now_this=this
             axios({
               method: 'get',
-              url: 'http://192.168.1.25/gxw_mobile3/Shop/Loves/imgCount',
+              url: this.hostUrl+'/Shop/Loves/imgCount',
             }).then(function (res) {
                     now_this.imgCount=res.data.list
             })
 
         if (this.id_num != null) {
           var now_this = this
-          axios.get('http://192.168.1.25/gxw_mobile3/Shop/Loves/imgTitleInfo?query={"user_id":' + this.id_num + '}')
+          axios.get(this.hostUrl+'/Shop/Loves/imgTitleInfo?query={"user_id":' + this.id_num + '}')
             .then(function (respon) {
               if (respon.data.result == false){
                 now_this.go_now=true

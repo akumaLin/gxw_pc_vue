@@ -89,7 +89,7 @@
       this.id_num = this.getCookie("GXW_user_id")
       axios({
         method: 'get',
-        url: 'http://192.168.1.25/gxw_mobile3/Shop/Loves/listImgTitle?query={"user_id":' + '"' + this.id_num + '"' + ',"page":' + '"' + this.page + '"' + ',"pageSize":' + '"' + this.pageSize + '"' + "}",
+        url: this.hostUrl+'/Shop/Loves/listImgTitle?query={"user_id":' + '"' + this.id_num + '"' + ',"page":' + '"' + this.page + '"' + ',"pageSize":' + '"' + this.pageSize + '"' + "}",
       }).then(function (res) {
         now_this.listImgTitle = res.data.list
         now_this.total = res.data.totalpage
@@ -117,7 +117,7 @@
       clearValue(){
         if (this.issearch == true) {
           var now_this = this
-          axios.get('http://192.168.1.25/gxw_mobile3/Shop/Loves/listImgTitle?query={"user_id":' + '"' + this.id_num + '"' + ',"page":' + '"' + this.page + '"' + ',"pageSize":' + '"' + this.pageSize + '"' + "}")
+          axios.get(this.hostUrl+'/Shop/Loves/listImgTitle?query={"user_id":' + '"' + this.id_num + '"' + ',"page":' + '"' + this.page + '"' + ',"pageSize":' + '"' + this.pageSize + '"' + "}")
             .then(function (res) {
               now_this.listImgTitle = res.data.list
               now_this.null_people=false
@@ -137,11 +137,11 @@
             var now_this = this
             axios({
               method: 'post',
-              url: 'http://192.168.1.25/gxw_mobile3/Shop/Loves/likesImgTitle',
+              url: this.hostUrl+'/Shop/Loves/likesImgTitle',
               data: 'query={"user_id":' + '"' + this.id_num + '"' + ',"img_id":' + '"' + id + '"' + "}",
             }).then(function (res) {
               if (res.data.result == true) {
-                axios.get('http://192.168.1.25/gxw_mobile3/Shop/Loves/listImgTitle?query={"user_id":' + now_this.id_num + '}')
+                axios.get(this.hostUrl+'/Shop/Loves/listImgTitle?query={"user_id":' + now_this.id_num + '}')
                   .then(function (respond) {
                     now_this.listImgTitle = respond.data.list
                   })
@@ -163,7 +163,7 @@
             });
           }
         } else {
-          top.location.href = "http://192.168.1.10/gxw520/user.php?back_act=http://192.168.1.10/gxw520/subject.php?act=love&common_type=1"
+          top.location.href=this.gxwloginUrl+"/user.php?back_act="+this.gxwloginUrl+"subject.php?act=love/for_love/self&common_type=1"
         }
 
 
@@ -171,7 +171,7 @@
       search(){
         var now_this = this
         if (this.user_code != "") {
-          axios.get('http://192.168.1.25/gxw_mobile3/Shop/Loves/listImgTitle?query={"user_id":' + '"' + this.id_num + '"' + ',"search":' + '"' + this.user_code + '"' + '}')
+          axios.get(this.hostUrl+'/Shop/Loves/listImgTitle?query={"user_id":' + '"' + this.id_num + '"' + ',"search":' + '"' + this.user_code + '"' + '}')
             .then(function (res) {
               if (res.data.result == true) {
                 now_this.listImgTitle = res.data.list
@@ -204,7 +204,7 @@
           } else {
             axios({
               method: 'get',
-              url: 'http://192.168.1.25/gxw_mobile3/Shop/Loves/listImgTitle?query={"user_id":' + '"' + this.id_num + '"' + ',"page":' + '"' + (parseInt(this.page) - 1) + '"' + ',"pageSize":' + '"' + this.pageSize + '"' + "}",
+              url: this.hostUrl+'/Shop/Loves/listImgTitle?query={"user_id":' + '"' + this.id_num + '"' + ',"page":' + '"' + (parseInt(this.page) - 1) + '"' + ',"pageSize":' + '"' + this.pageSize + '"' + "}",
             }).then(function (res) {
               now_this.listImgTitle = res.data.list
               now_this.page = (parseInt(now_this.page) - 1)
@@ -227,7 +227,7 @@
           } else {
             axios({
               method: 'get',
-              url: 'http://192.168.1.25/gxw_mobile3/Shop/Loves/listImgTitle?query={"user_id":' + '"' + this.id_num + '"' + ',"page":' + '"' + (parseInt(this.page) + 1) + '"' + ',"pageSize":' + '"' + this.pageSize + '"' + "}",
+              url: this.hostUrl+'/Shop/Loves/listImgTitle?query={"user_id":' + '"' + this.id_num + '"' + ',"page":' + '"' + (parseInt(this.page) + 1) + '"' + ',"pageSize":' + '"' + this.pageSize + '"' + "}",
             }).then(function (res) {
               now_this.listImgTitle = res.data.list
               now_this.page = (parseInt(now_this.page) + 1)
@@ -257,7 +257,6 @@
     props: [],
     filters: {
       getdlb (val) {
-        // console.log(val.toString().length)
         if (val.toString().length === 1) {
           return '0' + val
         }

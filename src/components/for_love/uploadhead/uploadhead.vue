@@ -77,13 +77,13 @@
  /*   created(){
                 if(this.isnt_pass!=''){
                   this.province=this.isnt_pass.address
-                  console.log(this.province)
+
                   this.placeholders= {
                     province:this.isnt_pass.address
 
                   }
                     this.text=this.isnt_pass.title
-                  console.log(this.isnt_pass.address)
+
                   this.imageUrl=this.isnt_pass.imageurl
 
 
@@ -119,20 +119,20 @@
             var now_this=this
             axios({
               method: 'post',
-              url: 'http://192.168.1.25/gxw_mobile3/Shop/Loves/addImgTitle',
+              url: this.hostUrl+'/Shop/Loves/addImgTitle',
               data:'query={"user_id":' + '"'+ this.id_num +'"'+ ',"image":'+'"'+ this.outUrl+'"'+',"address":'+'"'+ encodeURI(this.provinces)+'"'+',"title":'+'"'+this.text+'"'+ "}",
             }).then(function (res) {
                   now_this.$emit("not_pass")
                   now_this.$emit("myhead_not")
 
                   now_this.up_text_info = res.data.message
-                  setTimeout(function () {
+               /*   setTimeout(function () {
                     now_this.$emit("myhead")
                     now_this.loading2 = false
                     now_this.$emit('closeupload')
 
 
-                  }, 2000)
+                  }, 2000)*/
             })
           }
 
